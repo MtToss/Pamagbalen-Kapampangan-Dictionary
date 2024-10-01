@@ -1,22 +1,36 @@
 package pamagbalen.application;
 
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 public class MainWindowController {
-    
-    @FXML
-    private ImageView imageID;
 
     @FXML
-    private Image image;
+    private AnchorPane mainContainer; 
+
+    @FXML
+    private HBox subContainer;
 
     @FXML
     public void initialize() {
-        image = new Image("file:/C:/Users/Cedric%20Casanova/ForGit/DSAPROJECT/translator/src/main/resources/pamagbalen/img/Title.png");
-        imageID.setImage(image);
-        System.out.println("PASSED TEST 2");
+        loadTagalogTextArea();
     }
 
+    private void loadTagalogTextArea() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pamagbalen/TagalogColumn.fxml"));
+            VBox tagalogTextArea = loader.load();
+            
+            subContainer.getChildren().add(tagalogTextArea);
+            System.out.println("PASSED TEST 1 - MainWindowController");
+        } 
+        catch (IOException e) {
+            e.printStackTrace(); System.out.println("FAILED TEST 1 - MainWindowController");
+        }
+    }
 }
