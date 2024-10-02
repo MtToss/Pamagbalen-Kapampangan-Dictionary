@@ -1,23 +1,28 @@
 package pamagbalen.application;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class TagalogColumnController {
 
     private double contentHeight;
-    private final double minHeight = 200.0;
+    private final double minHeight = 400.0;
 
     @FXML
     private VBox vBoxContainer;
     
     @FXML
     private TextArea textArea;
+
+    @FXML
+    private Label labelContainer;
+
+    @FXML
+    private Button translateButton;
 
     @FXML
     public void initialize() {
@@ -33,6 +38,11 @@ public class TagalogColumnController {
                     break;
             }
         });
+    }
+
+    @FXML
+    public void translateButtonClicked() {
+        
     }
     
     public void expandVBox() {
@@ -61,5 +71,13 @@ public class TagalogColumnController {
             System.out.println("MINIMUM HEIGHT REACHED - BAWAL NA MAG SHRINK");
             vBoxContainer.setPrefHeight(minHeight);
         }
+    }
+
+    public void changeBackgroundColor(String color) {
+        vBoxContainer.setStyle("-fx-background-color: " + color + ";");
+    }
+
+    public void changeName(String name) {
+        labelContainer.setText(name);
     }
 }
