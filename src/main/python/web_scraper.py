@@ -32,6 +32,8 @@ translations_tagalog = scrape_translations(url1)
 translations_english = scrape_translations(url2)
 
 print("\nKapampangan Translations:")
+i = 1 
 for kapampangan_word, tagalog_word in translations_tagalog.items():
     english_word = translations_english.get(kapampangan_word, '')  # Get English translation or empty string
-    print(f"Kapampangan: {kapampangan_word} | Tagalog: {tagalog_word} | English: {english_word}")
+    print(f" {i}. Kapampangan: {kapampangan_word} | Tagalog: {tagalog_word} | English: {english_word}")
+    i += 1
