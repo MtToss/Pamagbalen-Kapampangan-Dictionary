@@ -23,6 +23,10 @@ public class MainWindowController {
 
     private void loadTagalogTextArea() {
         try {
+            //search button click
+            //ige get niya yung word
+            // compare niya yung value ng kapampangan, english and tagalog word na meron tayo
+            // tapos kapag meron makikita niya sa baba
 
             FXMLLoader filipinoContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/TagalogColumn.fxml"));
             VBox filipinoTextArea = filipinoContainerLoader.load();

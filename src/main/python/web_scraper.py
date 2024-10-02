@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 def scrape_translations(url):
     headers = {
@@ -31,9 +32,15 @@ url2 = 'https://www.tagaloglang.com/kapampangan-to-english/'
 translations_tagalog = scrape_translations(url1)
 translations_english = scrape_translations(url2)
 
-print("\nKapampangan Translations:")
-i = 1 
-for kapampangan_word, tagalog_word in translations_tagalog.items():
-    english_word = translations_english.get(kapampangan_word, '')  # Get English translation or empty string
-    print(f" {i}. Kapampangan: {kapampangan_word} | Tagalog: {tagalog_word} | English: {english_word}")
-    i += 1
+csv_file = 'src\main\python\csv\kapampangan_translations.csv'
+
+with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
+    writer = csv.writer(file)
+    
+    writer.writerow(["Kapampangan", "Tagalog", "English"])
+    
+    for kapampangan_word, tagalog_word in translations_tagalog.items():
+        english_word = translations_english.get(kapampangan_word, '')  # Get English translation or empty string
+        writer.writerow([kapampangan_word, tagalog_word, english_word])
+
+print(f"Translations saved to {csv_file}")
