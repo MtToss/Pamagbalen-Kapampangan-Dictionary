@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="735.0" style="-fx-background-color: #FF8383;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.WordofTheDayController">
+   <children>
+      <Label fx:id="labelContainer1" prefHeight="19.0" prefWidth="493.0" text="Kapampangan">
+         <font>
+            <Font name="Courier New Bold" size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="15.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="labelContainer" prefHeight="36.0" prefWidth="515.0" text="Word of The Day">
+         <font>
+            <Font name="Courier New Bold" size="30.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="15.0" right="10.0" />
+         </VBox.margin>
+      </Label>
+      <AnchorPane prefHeight="282.0" prefWidth="735.0" style="-fx-background-color: white;">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+         <children>
+            <Label layoutX="343.0" layoutY="1.0" prefHeight="29.0" prefWidth="134.0" text="Definition">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="kapampanganWord" layoutX="38.0" layoutY="31.0" prefHeight="32.0" prefWidth="235.0" text="Kapampangan Word" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="31.0">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="57.0" prefHeight="32.0" prefWidth="54.0" text="Tagalog:" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="57.0">
+               <font>
+                  <Font name="Sitka Small" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="78.0" prefHeight="32.0" prefWidth="54.0" text="English:" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="78.0">
+               <font>
+                  <Font name="Sitka Small" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="tagalogWord" layoutX="97.0" layoutY="57.0" prefHeight="32.0" prefWidth="178.0" text="Word" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="97.0" AnchorPane.topAnchor="57.0">
+               <font>
+                  <Font name="Sitka Small" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="englishWord" layoutX="97.0" layoutY="78.0" prefHeight="32.0" prefWidth="147.0" text="Word" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="97.0" AnchorPane.topAnchor="78.0">
+               <font>
+                  <Font name="Sitka Small" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="definitionContainer" layoutX="349.0" layoutY="33.0" prefHeight="223.0" prefWidth="372.0" text="Label" wrapText="true" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="349.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="33.0">
+               <font>
+                  <Font name="MS UI Gothic" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
