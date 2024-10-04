@@ -2,10 +2,9 @@ package pamagbalen.application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
-
 import java.time.LocalDate;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,7 +21,7 @@ public class WordofTheDayController {
     private VBox vBoxContainer;
 
     @FXML
-    private Label definitionContainer;
+    private TextArea definitionContainer;
 
     @FXML
     private Label kapampanganWord;
@@ -62,7 +61,7 @@ public class WordofTheDayController {
         }
     }
 
-        public void setWordOfTheDay() {
+    public void setWordOfTheDay() {
         LocalDate today = LocalDate.now();
         File recordFile = new File("src\\main\\python\\csv\\word_of_the_day.csv");
 

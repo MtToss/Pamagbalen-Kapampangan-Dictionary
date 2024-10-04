@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="735.0" style="-fx-background-color: #FF8383;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.WordofTheDayController">
+<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="735.0" style="-fx-background-color: white;" styleClass="anchor-pane" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.WordofTheDayController">
    <children>
       <Label fx:id="labelContainer1" prefHeight="19.0" prefWidth="493.0" text="Kapampangan">
          <font>
@@ -24,7 +26,7 @@
             <Insets left="15.0" right="10.0" />
          </VBox.margin>
       </Label>
-      <AnchorPane prefHeight="282.0" prefWidth="735.0" style="-fx-background-color: white;">
+      <AnchorPane prefHeight="278.0" prefWidth="736.0" style="-fx-background-color: white;">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
@@ -59,11 +61,14 @@
                   <Font name="Sitka Small" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="definitionContainer" layoutX="349.0" layoutY="33.0" prefHeight="223.0" prefWidth="372.0" text="Label" wrapText="true" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="349.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="33.0">
+            <TextArea fx:id="definitionContainer" editable="false" layoutX="343.0" layoutY="34.0" prefHeight="226.0" prefWidth="361.0" promptText="Pre-Text" text="Pre-Text" wrapText="true">
                <font>
                   <Font name="MS UI Gothic" size="24.0" />
                </font>
-            </Label>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </TextArea>
          </children>
       </AnchorPane>
    </children>
