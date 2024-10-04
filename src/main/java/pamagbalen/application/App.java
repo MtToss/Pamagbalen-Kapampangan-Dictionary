@@ -18,7 +18,7 @@ public class App extends Application {
 
             Scene scene = new Scene(root);
             primaryStage.setWidth(1500);
-            primaryStage.setHeight(1000);
+            primaryStage.setHeight(850);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Kapampangan Translator");
             System.out.println("PASSED TEST 2 - APP");

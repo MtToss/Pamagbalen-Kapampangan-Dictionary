@@ -2,11 +2,15 @@ package pamagbalen.application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
+import java.time.LocalDate;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,21 +46,59 @@ public class WordofTheDayController {
                 if (line.startsWith("Kapampangan")) {
                     continue;
                 }
-                String[] words = line.split(",");
-            
+                
+                String[] words = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"); 
+                
+                for (int i = 0; i < words.length; i++) {
+                    words[i] = words[i].replace("\"", "").trim(); 
+                }
+    
                 wordList.add(words);
             }
             System.out.println("PASSED TEST 3 - Word of The Day Controller");
         } catch (IOException e) {
-            e.printStackTrace(); System.out.println("FAILED TEST 3 - Word of The Day Controller");
+            e.printStackTrace(); 
+            System.out.println("FAILED TEST 3 - Word of The Day Controller");
         }
     }
 
-    public void setRandomKapampanganWord() {
-        if (!wordList.isEmpty()) {
-            Random random = new Random();
-            int randomIndex = random.nextInt(wordList.size());
-            String[] selectedWord = wordList.get(130);
+        public void setWordOfTheDay() {
+        LocalDate today = LocalDate.now();
+        File recordFile = new File("src\\main\\python\\csv\\word_of_the_day.csv");
+
+        if (recordFile.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(recordFile))) {
+                String line;
+                if ((line = br.readLine()) != null) {
+                    String[] data = line.split(",");
+                    String storedDate = data[0];
+                    int storedIndex = Integer.parseInt(data[1]);
+
+                    if (storedDate.equals(today.toString())) {
+                        setRandomKapampanganWord(storedIndex);
+                        return;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(wordList.size());
+        setRandomKapampanganWord(randomIndex);
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(recordFile))) {
+            bw.write(today.toString() + "," + randomIndex);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setRandomKapampanganWord(int index) {
+        if (!wordList.isEmpty()){
+            String[] selectedWord = wordList.get(index);
 
             kapampanganWord.setText(selectedWord[0]); 
             tagalogWord.setText(selectedWord[1]); 

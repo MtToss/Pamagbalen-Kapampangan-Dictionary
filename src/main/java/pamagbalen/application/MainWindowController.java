@@ -28,12 +28,12 @@ public class MainWindowController {
             // compare niya yung value ng kapampangan, english and tagalog word na meron tayo
             // tapos kapag meron makikita niya sa baba
 
-            FXMLLoader filipinoContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/WordofTheDay.fxml"));
-            VBox filipinoTextArea = filipinoContainerLoader.load();
-            WordofTheDayController filipinoController = filipinoContainerLoader.getController();
-            filipinoController.setRandomKapampanganWord();
+            FXMLLoader wordofTheDayLoader = new FXMLLoader(getClass().getResource("/pamagbalen/WordofTheDay.fxml"));
+            VBox wordofTheDayContainer = wordofTheDayLoader.load();
+            WordofTheDayController wordofTheDayController = wordofTheDayLoader.getController();
+            wordofTheDayController.setWordOfTheDay();
 
-            subContainer.getChildren().add(filipinoTextArea);
+            subContainer.getChildren().add(wordofTheDayContainer);
 
             System.out.println("PASSED TEST 1 - MainWindowController");
         } 
