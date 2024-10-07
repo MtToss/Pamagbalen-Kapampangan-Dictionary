@@ -99,18 +99,18 @@ public class WordofTheDayController {
         if (!wordList.isEmpty()){
             String[] selectedWord = wordList.get(index);
 
-            kapampanganWord.setText(selectedWord[0]); 
-            tagalogWord.setText(selectedWord[1]); 
-            englishWord.setText(selectedWord[2]);
+            kapampanganWord.setText(capitalize(selectedWord[0])); 
+            tagalogWord.setText(capitalize(selectedWord[1])); 
+            englishWord.setText(capitalize(selectedWord[2]));
             //definitionContainer.setText("is a type of flowering plant belonging to the family Poaceae, characterized by narrow leaves and hollow stems, commonly found in various habitats, and plays an essential role in ecosystems as a ground cover, forage for animals, and soil stabilization");
-            
-             if (selectedWord.length > 3) {
-                definitionContainer.setText(selectedWord[3]);
-            } 
-            else {
-                definitionContainer.setText("No definition available");
-            } 
+            definitionContainer.setText(capitalize(selectedWord[3]));
+           
             
         }
+        
+    }
+
+    private String capitalize(String word) {
+        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
     }
 }

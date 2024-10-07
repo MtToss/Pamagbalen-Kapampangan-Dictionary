@@ -25,21 +25,16 @@ public class MainWindowController {
     @FXML
     private Button searchButton;
 
-    VBox wordofTheDayContainer= null;
+    VBox wordofTheDayContainer = null;
     VBox contentContainer = null;
 
     @FXML
     public void initialize() {
-        loadTagalogTextArea();
+        loadArea();
     }
 
-    private void loadTagalogTextArea() {
+    private void loadArea() {
         try {
-            //search button click
-            //ige get niya yung word
-            // compare niya yung value ng kapampangan, english and tagalog word na meron tayo
-            // tapos kapag meron makikita niya sa baba
-
             FXMLLoader wordofTheDayLoader = new FXMLLoader(getClass().getResource("/pamagbalen/WordofTheDay.fxml"));
             wordofTheDayContainer = wordofTheDayLoader.load();
             WordofTheDayController wordofTheDayController = wordofTheDayLoader.getController();
@@ -50,31 +45,47 @@ public class MainWindowController {
             System.out.println("PASSED TEST 1 - MainWindowController");
         } 
         catch (IOException e) {
-            e.printStackTrace(); System.out.println("FAILED TEST 1 - Main Window Controller");
+            e.printStackTrace();
+            System.out.println("FAILED TEST 1 - MainWindowController");
         }
     }
 
     @FXML
     private void buttonClicked() {
         String wordContainer = searchTextField.getText();
+
         subContainer.getChildren().remove(wordofTheDayContainer);
 
-        
         try {
-            FXMLLoader contentContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ContentContainer.fxml"));
-            contentContainer = contentContainerLoader.load();
-            ContentContainerController contentContainerController = contentContainerLoader.getController();
+            if (contentContainer == null) {
+                FXMLLoader contentContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ContentContainer.fxml"));
+                contentContainer = contentContainerLoader.load();
+                ContentContainerController contentContainerController = contentContainerLoader.getController();
 
-            contentContainerController.getWordSearched(wordContainer);
-            subContainer.getChildren().add(contentContainer);
-            subContainer.getChildren().add(wordofTheDayContainer);
+                contentContainerController.getWordSearched(wordContainer);
 
-            HBox.setMargin(contentContainer, new Insets(0,10,0,5));
-            HBox.setMargin(wordofTheDayContainer, new Insets(0,5,0,10));
+                contentContainer.getProperties().put("fxController", contentContainerController); // we store the controller to the content container for future purposes
+            } 
+            else {
+                ContentContainerController contentContainerController = (ContentContainerController) contentContainer.getProperties().get("fxController"); // this is what the future purposes means like, we get the controller. Since it is initialized 
+                                                                                                                                                            // and we need to update it for another search, we can retrieve to controller and update the word.
+                contentContainerController.getWordSearched(wordContainer);
+                
+            }
+
+            if (!subContainer.getChildren().contains(contentContainer)) {
+                subContainer.getChildren().add(contentContainer);
+            }
+
+            if (!subContainer.getChildren().contains(wordofTheDayContainer)) {
+                subContainer.getChildren().add(wordofTheDayContainer);
+            }
+
+            HBox.setMargin(contentContainer, new Insets(0, 10, 0, 5));
+            HBox.setMargin(wordofTheDayContainer, new Insets(0, 5, 0, 10));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        
     }
 }

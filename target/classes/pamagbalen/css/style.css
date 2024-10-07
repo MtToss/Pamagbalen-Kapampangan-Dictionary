@@ -3,3 +3,8 @@
     -fx-border-radius: 15;
     -fx-padding: 10; 
 }
+.label:hover {
+    -fx-text-fill: #ff5c5c; 
+    -fx-font-size: 33px;
+    -fx-font-family: Impact;
+}
