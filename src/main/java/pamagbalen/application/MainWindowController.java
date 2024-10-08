@@ -25,9 +25,18 @@ public class MainWindowController {
     @FXML
     private Button searchButton;
 
+    @FXML
+    private AnchorPane bottomPaneContainer;
+
+    @FXML
+    private VBox vBoxContainer;
+
+
+    
+
     VBox wordofTheDayContainer = null;
     VBox contentContainer = null;
-
+    AnchorPane browseContainer = null;
     @FXML
     public void initialize() {
         loadArea();
@@ -82,9 +91,40 @@ public class MainWindowController {
             }
 
             HBox.setMargin(contentContainer, new Insets(0, 10, 0, 5));
-            HBox.setMargin(wordofTheDayContainer, new Insets(0, 5, 0, 10));
+            HBox.setMargin(wordofTheDayContainer, new Insets(0, 5, 0, 50));
 
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void labelBrowseClicked() {
+        try {
+            if(browseContainer == null) {
+                FXMLLoader browseContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/Selector.fxml"));
+                browseContainer = browseContainerLoader.load();
+                ListController listController = browseContainerLoader.getController();
+
+                //listController.getProperties().put("fxController", listController);
+            }
+            else {
+
+            }
+
+            if(!bottomPaneContainer.getChildren().contains(browseContainer)) {
+                bottomPaneContainer.getChildren().add(browseContainer);
+                
+                AnchorPane.setTopAnchor(browseContainer, 0.0);
+                AnchorPane.setBottomAnchor(browseContainer, 0.0);
+                AnchorPane.setLeftAnchor(browseContainer, null);
+                AnchorPane.setRightAnchor(browseContainer, 0.0);
+
+                //if(subContainer.getChildren().)
+
+            }
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
     }

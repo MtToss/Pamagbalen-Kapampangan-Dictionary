@@ -24,7 +24,8 @@ public class App extends Application {
             System.out.println("PASSED TEST 2 - APP");
             primaryStage.show();
 
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             System.out.println("Window Error: " + e.getMessage()); e.printStackTrace();
             System.out.println("FAILED TEST 2 - APP");
         }

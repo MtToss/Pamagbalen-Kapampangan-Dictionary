@@ -104,7 +104,6 @@ public class WordofTheDayController {
             englishWord.setText(capitalize(selectedWord[2]));
             //definitionContainer.setText("is a type of flowering plant belonging to the family Poaceae, characterized by narrow leaves and hollow stems, commonly found in various habitats, and plays an essential role in ecosystems as a ground cover, forage for animals, and soil stabilization");
             definitionContainer.setText(capitalize(selectedWord[3]));
-           
             
         }
         

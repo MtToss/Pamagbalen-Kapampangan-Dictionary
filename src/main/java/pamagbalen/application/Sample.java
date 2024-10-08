@@ -14,7 +14,7 @@ public class Sample extends Application {
     @Override
     public void start(@SuppressWarnings("exports") Stage primaryStage) throws Exception {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/pamagbalen/TagalogColumn.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/pamagbalen/Selector.fxml"));
 
             Scene scene = new Scene(root);
             primaryStage.setWidth(1500);
