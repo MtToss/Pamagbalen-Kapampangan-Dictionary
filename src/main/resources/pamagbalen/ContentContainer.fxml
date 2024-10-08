@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="735.0" style="-fx-background-color: white;" styleClass="anchor-pane" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.ContentContainerController">
+<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="735.0" style="-fx-background-color: white;" styleClass="anchor-pane" stylesheets="@css/contentcontainerstyle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.ContentContainerController">
    <children>
       <Label fx:id="labelContainer1" prefHeight="19.0" prefWidth="493.0" textFill="#cd2b2b">
          <font>
