@@ -63,7 +63,9 @@ public class MainWindowController {
     private void buttonClicked() {
         String wordContainer = searchTextField.getText();
 
-        subContainer.getChildren().remove(wordofTheDayContainer);
+        if (subContainer.getChildren().contains(wordofTheDayContainer)){
+            subContainer.getChildren().remove(wordofTheDayContainer);
+        }
 
         try {
             if (contentContainer == null) {
@@ -86,9 +88,7 @@ public class MainWindowController {
                 subContainer.getChildren().add(contentContainer);
             }
 
-            if (!subContainer.getChildren().contains(wordofTheDayContainer)) {
-                subContainer.getChildren().add(wordofTheDayContainer);
-            }
+            
 
             HBox.setMargin(contentContainer, new Insets(0, 10, 0, 5));
             HBox.setMargin(wordofTheDayContainer, new Insets(0, 5, 0, 50));
