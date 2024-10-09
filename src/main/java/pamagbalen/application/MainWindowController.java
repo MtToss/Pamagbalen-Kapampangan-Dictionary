@@ -31,12 +31,13 @@ public class MainWindowController {
     @FXML
     private VBox vBoxContainer;
 
+    private ListContentContainerController listContentContainerController;
 
-    
-
+    char alphabetContainer = 'b';
     VBox wordofTheDayContainer = null;
     VBox contentContainer = null;
     AnchorPane browseContainer = null;
+    AnchorPane listContentContainer = null;
     @FXML
     public void initialize() {
         loadArea();
@@ -50,6 +51,7 @@ public class MainWindowController {
             wordofTheDayController.setWordOfTheDay();
 
             subContainer.getChildren().add(wordofTheDayContainer);
+            HBox.setMargin(wordofTheDayContainer, new Insets(50, 50, 0, 50));
 
             System.out.println("PASSED TEST 1 - MainWindowController");
         } 
@@ -88,10 +90,8 @@ public class MainWindowController {
                 subContainer.getChildren().add(contentContainer);
             }
 
+            HBox.setMargin(contentContainer, new Insets(0, 5, 0, 5));
             
-
-            HBox.setMargin(contentContainer, new Insets(0, 10, 0, 5));
-            HBox.setMargin(wordofTheDayContainer, new Insets(0, 5, 0, 50));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -104,11 +104,10 @@ public class MainWindowController {
             if(browseContainer == null) {
                 FXMLLoader browseContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/Selector.fxml"));
                 browseContainer = browseContainerLoader.load();
-                ListController listController = browseContainerLoader.getController();
 
-                //listController.getProperties().put("fxController", listController);
-            }
-            else {
+                ListController browseController = browseContainerLoader.getController();
+                browseController.setMainWindowController(this); 
+                
 
             }
 
@@ -120,12 +119,48 @@ public class MainWindowController {
                 AnchorPane.setLeftAnchor(browseContainer, null);
                 AnchorPane.setRightAnchor(browseContainer, 0.0);
 
-                //if(subContainer.getChildren().)
+                if(subContainer.getChildren().contains(wordofTheDayContainer)) {
+                    subContainer.getChildren().remove(wordofTheDayContainer);
+                }
 
+                if(subContainer.getChildren().contains(contentContainer)) {
+                    subContainer.getChildren().remove(contentContainer);
+                }
+            }
+            
+            if(!subContainer.getChildren().contains(listContentContainer)){
+                subContainer.getChildren().add(listContentContainer);
             }
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void loadListContentContainer(char letter) {
+        try {
+
+            if(subContainer.getChildren().contains(listContentContainer)) {
+                subContainer.getChildren().remove(listContentContainer);
+            }
+            FXMLLoader listContentContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ListContentContainer.fxml"));
+            listContentContainer = listContentContainerLoader.load();
+            ListContentContainerController listContentContainerController = listContentContainerLoader.getController();
+
+            listContentContainerController.setAlphabet(letter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+
+        if (!subContainer.getChildren().contains(listContentContainer)) {
+            subContainer.getChildren().add(listContentContainer);
+        }
+    }
+
+    public char getAlphabet(char alphabet) {
+        alphabetContainer = alphabet;
+        return alphabetContainer;
     }
 }
