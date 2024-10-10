@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class ContentContainerController {
@@ -91,7 +90,7 @@ public class ContentContainerController {
                 labelContainer1.setText(null);
                 return entry;
             }
-    
+            
             for (int i = 0; i < entry.length; i++) {
                 int distance = wagnerFischer(word, entry[i]);
                 if (distance < minDistance) {
@@ -145,25 +144,5 @@ public class ContentContainerController {
 
     private String capitalize(String word) {
         return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
-    }
-
-    public String[] getWordData (String[] wordData) {
-        if (wordData != null) {    
-            kapampanganWord.setText(capitalize(wordData[0]));  
-            tagalogWord.setText(capitalize(wordData[1]));      
-            englishWord.setText(capitalize(wordData[2]));      
-            definitionContainer.setText(capitalize(wordData[3]));
-            FXMLLoader mainWindowLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ContentContainer.fxml"));
-
-            try {
-                mainWindow = mainWindowLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            MainWindowController mainWindowController = mainWindowLoader.getController();
-
-            mainWindowController.addContainerContainer(); 
-        } 
-        return wordData;
     }
 }

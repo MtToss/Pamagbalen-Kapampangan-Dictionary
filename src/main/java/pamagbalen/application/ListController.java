@@ -39,9 +39,17 @@ public class ListController {
         for (char letter = 'a'; letter <= 'z'; letter++) {
             char currentLetter = letter;
 
-            Button letterButton = new Button(String.valueOf(currentLetter));
+            Button letterButton = new Button(String.valueOf(currentLetter).toUpperCase());
             letterButton.setOnAction(event -> onLetterClicked(currentLetter));
-            letterButton.setStyle("-fx-font-size: 16px;");
+            letterButton.setStyle("-fx-font-size: 16px; -fx-background-color: #e5b6b6;");
+
+            letterButton.setOnMouseEntered(e -> {
+                letterButton.setStyle("-fx-font-size: 16px; -fx-background-color: #eb8686;");
+            });
+            
+            letterButton.setOnMouseExited(e -> {
+                letterButton.setStyle("-fx-font-size: 16px;  -fx-background-color: #e5b6b6;"); 
+            });
 
             HBox.setMargin(letterButton, new Insets(10, 5, 10, 5));
             alphabetContainer.getChildren().add(letterButton);
@@ -58,5 +66,9 @@ public class ListController {
 
     public void setMainWindowController(MainWindowController mainWindowController) {
         this.mainWindowController = mainWindowController;
+    }
+
+    private String capitalize(String word) {
+        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
     }
 }

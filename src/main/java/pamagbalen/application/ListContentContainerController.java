@@ -8,16 +8,21 @@ import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class ListContentContainerController {
     
-
+    int i = 1;
     Label wordContainer = null;
     private List<String[]> wordList = new ArrayList<>();
     char alphabetContainer;
     VBox contentContainer = null;
+
+    @FXML
+    VBox subContainer;
 
     @FXML
     VBox indexContainer;
@@ -71,7 +76,16 @@ public class ListContentContainerController {
 
         for (String[] words : filteredList) {
             System.out.println(words[0]);
-            Label wordLabel = new Label(String.valueOf(words[0])); 
+            Label wordLabel = new Label(String.valueOf(capitalize(words[0]))); 
+            wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: white;");
+            wordLabel.setOnMouseEntered(e -> {
+                wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: #eb8686;");
+            });
+            
+            wordLabel.setOnMouseExited(e -> {
+                wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: white;"); 
+            });
+
             wordLabel.setOnMouseClicked(event -> {
                 onLabelClick(words); 
             });
@@ -87,21 +101,37 @@ public class ListContentContainerController {
     }
 
     public void onLabelClick(String[] wordData) {
-
-        FXMLLoader contentContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ContentContainer.fxml"));
+        String wordContainer = wordData[0];
         try {
-            contentContainer = contentContainerLoader.load();
-        } catch (IOException e) {
+            if (contentContainer == null) {
+                FXMLLoader contentContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ContentContainer.fxml"));
+                contentContainer = contentContainerLoader.load();
+                ContentContainerController contentContainerController = contentContainerLoader.getController();
+
+                contentContainerController.getWordSearched(wordContainer);
+
+                contentContainer.getProperties().put("fxController", contentContainerController); // we store the controller to the content container for future purposes
+            } 
+            else {
+                ContentContainerController contentContainerController = (ContentContainerController) contentContainer.getProperties().get("fxController"); // this is what the future purposes means like, we get the controller. Since it is initialized 
+                
+                contentContainerController.getWordSearched(wordContainer);  // and we need to update it for another search, we can retrieve to controller and update the word.
+            }
+
+            if (!subContainer.getChildren().contains(contentContainer)) {
+                subContainer.getChildren().add(contentContainer);
+            }
+
+            HBox.setMargin(contentContainer, new Insets(0, 5, 0, 5));
+            
+        } 
+        catch (IOException e) {
             e.printStackTrace();
         }
-        ContentContainerController contentContainerController = contentContainerLoader.getController();
+    }
 
-        contentContainerController.getWordData(wordData);
-        
-    
-
-        Label detailsLabel = new Label("Kapampangan: " + wordData[0] + "\nTagalog: " + wordData[1] + "\nEnglish: " + wordData[2]);
-        indexContainer.getChildren().add(detailsLabel); 
+    private String capitalize(String word) {
+        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
     }
     
 }

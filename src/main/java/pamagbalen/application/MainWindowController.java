@@ -96,12 +96,6 @@ public class MainWindowController {
         }
     }
 
-    public void addContainerContainer() {
-        if(!subContainer.getChildren().contains(contentContainer)) {
-            subContainer.getChildren().add(contentContainer);
-        }
-    }
-
     @FXML
     public void labelBrowseClicked() {
         try {
@@ -167,5 +161,6 @@ public class MainWindowController {
         alphabetContainer = alphabet;
         return alphabetContainer;
     }
+
 
 }
