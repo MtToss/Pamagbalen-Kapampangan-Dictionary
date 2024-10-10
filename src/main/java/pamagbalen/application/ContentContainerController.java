@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class ContentContainerController {
@@ -35,7 +37,9 @@ public class ContentContainerController {
     private Label labelContainer1;
 
     private List<String[]> wordList = new ArrayList<>();
-
+    
+    VBox mainWindow = null;
+    
     public void initialize() {
         loadCSV("src\\\\main\\\\python\\\\csv\\\\kapampangan_translations.csv");
     }
@@ -99,7 +103,7 @@ public class ContentContainerController {
         }
         String tempStoreWord = bestMatch[0];
         labelContainer1.setText("Did you mean: " + tempStoreWord);
-        return bestMatch; // Return the closest match found
+        return bestMatch; 
     }
     
     
@@ -141,5 +145,25 @@ public class ContentContainerController {
 
     private String capitalize(String word) {
         return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+    }
+
+    public String[] getWordData (String[] wordData) {
+        if (wordData != null) {    
+            kapampanganWord.setText(capitalize(wordData[0]));  
+            tagalogWord.setText(capitalize(wordData[1]));      
+            englishWord.setText(capitalize(wordData[2]));      
+            definitionContainer.setText(capitalize(wordData[3]));
+            FXMLLoader mainWindowLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ContentContainer.fxml"));
+
+            try {
+                mainWindow = mainWindowLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            MainWindowController mainWindowController = mainWindowLoader.getController();
+
+            mainWindowController.addContainerContainer(); 
+        } 
+        return wordData;
     }
 }

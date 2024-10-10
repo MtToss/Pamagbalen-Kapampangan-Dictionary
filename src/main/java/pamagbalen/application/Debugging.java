@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 /**
  * JavaFX App
  */
-public class Sample extends Application {
+public class Debugging extends Application {
 
     @Override
     public void start(@SuppressWarnings("exports") Stage primaryStage) throws Exception {

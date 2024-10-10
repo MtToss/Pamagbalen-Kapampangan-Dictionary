@@ -1,17 +1,12 @@
 package pamagbalen.application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 public class ListController {
@@ -20,7 +15,6 @@ public class ListController {
     private HBox alphabetContainer;
 
     private ListContentContainerController listContentController; 
-    private List<String[]> wordList = new ArrayList<>();
     private MainWindowController mainWindowController;
 
     public void initialize() {
@@ -31,6 +25,7 @@ public class ListController {
     private void initializeListContentController() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/pamagbalen/ListContentContainer.fxml"));
+            @SuppressWarnings("unused")
             Parent content = loader.load();
 
             listContentController = loader.getController();

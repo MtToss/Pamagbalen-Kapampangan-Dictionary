@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -16,7 +17,7 @@ public class ListContentContainerController {
     Label wordContainer = null;
     private List<String[]> wordList = new ArrayList<>();
     char alphabetContainer;
-
+    VBox contentContainer = null;
 
     @FXML
     VBox indexContainer;
@@ -60,7 +61,6 @@ public class ListContentContainerController {
                 filteredList.add(words);
             }
         }
-
         displayWords(filteredList);
     }
 
@@ -72,6 +72,9 @@ public class ListContentContainerController {
         for (String[] words : filteredList) {
             System.out.println(words[0]);
             Label wordLabel = new Label(String.valueOf(words[0])); 
+            wordLabel.setOnMouseClicked(event -> {
+                onLabelClick(words); 
+            });
             indexContainer.getChildren().add(wordLabel);
             
         }
@@ -82,4 +85,23 @@ public class ListContentContainerController {
         filterWordListByLetter(alphabetContainer);  
         System.out.println("Alphabet set to: " + alphabetContainer);  
     }
+
+    public void onLabelClick(String[] wordData) {
+
+        FXMLLoader contentContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ContentContainer.fxml"));
+        try {
+            contentContainer = contentContainerLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ContentContainerController contentContainerController = contentContainerLoader.getController();
+
+        contentContainerController.getWordData(wordData);
+        
+    
+
+        Label detailsLabel = new Label("Kapampangan: " + wordData[0] + "\nTagalog: " + wordData[1] + "\nEnglish: " + wordData[2]);
+        indexContainer.getChildren().add(detailsLabel); 
+    }
+    
 }

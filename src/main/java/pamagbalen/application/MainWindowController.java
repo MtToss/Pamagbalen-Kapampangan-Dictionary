@@ -31,8 +31,6 @@ public class MainWindowController {
     @FXML
     private VBox vBoxContainer;
 
-    private ListContentContainerController listContentContainerController;
-
     char alphabetContainer = 'b';
     VBox wordofTheDayContainer = null;
     VBox contentContainer = null;
@@ -95,6 +93,12 @@ public class MainWindowController {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void addContainerContainer() {
+        if(!subContainer.getChildren().contains(contentContainer)) {
+            subContainer.getChildren().add(contentContainer);
         }
     }
 
@@ -163,4 +167,5 @@ public class MainWindowController {
         alphabetContainer = alphabet;
         return alphabetContainer;
     }
+
 }

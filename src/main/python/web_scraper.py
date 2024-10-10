@@ -40,7 +40,7 @@ with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
     writer.writerow(["Kapampangan", "Tagalog", "English"])
     
     for kapampangan_word, tagalog_word in translations_tagalog.items():
-        english_word = translations_english.get(kapampangan_word, '')  # Get English translation or empty string
+        english_word = translations_english.get(kapampangan_word, '')
         writer.writerow([kapampangan_word, tagalog_word, english_word])
 
 print(f"Translations saved to {csv_file}")
