@@ -60,7 +60,7 @@
                   <Font name="Sitka Small" size="12.0" />
                </font>
             </Label>
-            <TextArea fx:id="definitionContainer" layoutX="25.0" layoutY="175.0" prefHeight="125.0" prefWidth="650.0" promptText="Pre-Text" text="Pre-Text" wrapText="true">
+            <TextArea fx:id="definitionContainer" editable="false" layoutX="25.0" layoutY="175.0" prefHeight="125.0" prefWidth="650.0" promptText="Pre-Text" text="Pre-Text" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>

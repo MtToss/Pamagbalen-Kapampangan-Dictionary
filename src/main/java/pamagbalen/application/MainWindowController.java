@@ -155,7 +155,8 @@ public class MainWindowController {
             ListContentContainerController listContentContainerController = listContentContainerLoader.getController();
 
             listContentContainerController.setAlphabet(letter);
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             e.printStackTrace();
         }
         
