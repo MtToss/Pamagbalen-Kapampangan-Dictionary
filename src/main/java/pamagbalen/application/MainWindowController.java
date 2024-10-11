@@ -88,6 +88,14 @@ public class MainWindowController {
                 subContainer.getChildren().add(contentContainer);
             }
 
+            if(subContainer.getChildren().contains(listContentContainer)) {
+                subContainer.getChildren().removeAll(listContentContainer);
+            }
+
+            if(bottomPaneContainer.getChildren().removeAll(browseContainer)) {
+                bottomPaneContainer.getChildren().removeAll(browseContainer);
+            }
+
             HBox.setMargin(contentContainer, new Insets(0, 5, 0, 5));
             
 
