@@ -80,24 +80,27 @@ public class ListContentContainerController {
             wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: white;");
             wordLabel.setOnMouseEntered(e -> {
                 wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: #eb8686;");
+
             });
             
             wordLabel.setOnMouseExited(e -> {
                 wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: white;"); 
+
             });
 
             wordLabel.setOnMouseClicked(event -> {
                 onLabelClick(words); 
+
             });
             indexContainer.getChildren().add(wordLabel);
-            
         }
     }
 
     public void setAlphabet(char alphabet) {
         alphabetContainer = alphabet;
         filterWordListByLetter(alphabetContainer);  
-        System.out.println("Alphabet set to: " + alphabetContainer);  
+        System.out.println("Alphabet set to: " + alphabetContainer); 
+         
     }
 
     public void onLabelClick(String[] wordData) {
