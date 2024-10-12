@@ -95,7 +95,7 @@ public class WordofTheDayController {
         }
     }
 
-    public void setRandomKapampanganWord(int index) {
+    private void setRandomKapampanganWord(int index) {
         if (!wordList.isEmpty()){
             String[] selectedWord = wordList.get(index);
 
