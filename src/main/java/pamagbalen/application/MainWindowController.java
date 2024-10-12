@@ -1,5 +1,6 @@
 package pamagbalen.application;
 
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,12 +77,6 @@ public class MainWindowController {
         }
     }
 
-    public void setYAnimation(Pane pane) {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), pane);
-        transition.setFromY(-300);   
-        transition.play();
-    }
-
     @FXML
     public void onBrowsePaneShow() {
         animatePane(browsePane, true); 
@@ -106,6 +101,13 @@ public class MainWindowController {
         homeLabel.setTextFill(Color.BLACK);
     }
 
+    
+    public void setYAnimation(@SuppressWarnings("exports") Pane pane) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), pane);
+        transition.setFromY(-300);   
+        transition.play();
+    }
+
     private void animatePane(Pane pane, boolean show) {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), pane);
         
@@ -120,13 +122,48 @@ public class MainWindowController {
         transition.play();
     }
 
+    private void animateVBox(VBox box, boolean show) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), box);
+        if (show) {
+            transition.setFromX(400);
+            transition.setToX(-800); 
+            transition.setToY(75); 
+        } else {
+            transition.setFromX(0); 
+            transition.setToX(-300); 
+        }
+        
+        transition.play();
+    }
+
+    private void animateExit(VBox box) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
+ 
+        transition.setFromX(0); 
+        transition.setToX(-800); 
+        transition.play();
+    }
+
+    private void animateEntrance(VBox box) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
+ 
+
+        transition.setToX(0); 
+        transition.play();
+    }
+
+    
+    private void animateExitContentContainer(VBox box) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
+ 
+        transition.setFromX(-800); 
+        transition.setToX(-1800); 
+        transition.play();
+    }
+
     @FXML
     private void buttonClicked() {
         String wordContainer = searchTextField.getText();
-
-        if (subContainer.getChildren().contains(wordofTheDayContainer)){
-            subContainer.getChildren().remove(wordofTheDayContainer);
-        }
 
         try {
             if (contentContainer == null) {
@@ -135,19 +172,42 @@ public class MainWindowController {
                 ContentContainerController contentContainerController = contentContainerLoader.getController();
 
                 contentContainerController.getWordSearched(wordContainer);
-
+                animateExit(wordofTheDayContainer);
+                animateVBox(contentContainer, true);
+                
                 contentContainer.getProperties().put("fxController", contentContainerController); // we store the controller to the content container for future purposes
             } 
             else {
+                // and we need to update it for another search, we can retrieve to controller and update the word.
                 ContentContainerController contentContainerController = (ContentContainerController) contentContainer.getProperties().get("fxController"); // this is what the future purposes means like, we get the controller. Since it is initialized 
-                                                                                                                                                            // and we need to update it for another search, we can retrieve to controller and update the word.
-                contentContainerController.getWordSearched(wordContainer);
+
+                animateExitContentContainer(contentContainer);
+                
+
+                PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+                pause.setOnFinished(event -> {
+                    contentContainerController.getWordSearched(wordContainer);
+                    animateVBox(contentContainer, true);
+                });
+                pause.play();
                 
             }
 
-            if (!subContainer.getChildren().contains(contentContainer)) {
-                subContainer.getChildren().add(contentContainer);
-            }
+            PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+            pause.setOnFinished(event -> {
+                if (subContainer.getChildren().contains(wordofTheDayContainer)) {
+                    subContainer.getChildren().remove(wordofTheDayContainer);
+                }
+            });
+            pause.play();
+
+            pause.setDelay(Duration.seconds(2));
+            pause.setOnFinished(event -> {
+                if (!subContainer.getChildren().contains(contentContainer)) {
+                    subContainer.getChildren().add(contentContainer);
+                }   
+            });
+            pause.play();
 
             if(subContainer.getChildren().contains(listContentContainer)) {
                 subContainer.getChildren().removeAll(listContentContainer);
@@ -169,7 +229,13 @@ public class MainWindowController {
     public void labelHomeClicked() {
         if(browseContainer != null) {
             if(bottomPaneContainer.getChildren().contains(browseContainer)) {
-                bottomPaneContainer.getChildren().remove(browseContainer);
+
+                animatePane(browseContainer, false);
+                PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+                pause.setOnFinished(event -> {
+                    bottomPaneContainer.getChildren().remove(browseContainer);
+                });
+                pause.play();
             }
 
             if(subContainer.getChildren().contains(listContentContainer)) {
@@ -182,6 +248,8 @@ public class MainWindowController {
         }
 
         if(!subContainer.getChildren().contains(wordofTheDayContainer)) {
+            System.out.println("it contains");
+            animateEntrance(wordofTheDayContainer);
             subContainer.getChildren().add(wordofTheDayContainer);
         }
     }
@@ -207,7 +275,12 @@ public class MainWindowController {
                 AnchorPane.setRightAnchor(browseContainer, 0.0);
 
                 if(subContainer.getChildren().contains(wordofTheDayContainer)) {
+                    animateExit(wordofTheDayContainer);
+                    PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+                    pause.setOnFinished(event -> {
                     subContainer.getChildren().remove(wordofTheDayContainer);
+                    });
+                    pause.play();
                 }
 
                 if(subContainer.getChildren().contains(contentContainer)) {
@@ -215,7 +288,7 @@ public class MainWindowController {
                 }
             }
             
-            if(!subContainer.getChildren().contains(listContentContainer)){
+            if (listContentContainer != null && !subContainer.getChildren().contains(listContentContainer)) {
                 subContainer.getChildren().add(listContentContainer);
             }
         }
