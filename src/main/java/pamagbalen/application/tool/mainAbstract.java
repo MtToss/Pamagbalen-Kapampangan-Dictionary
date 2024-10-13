@@ -26,7 +26,7 @@ public abstract class mainAbstract {
     protected void animateVBox(VBox box, boolean show) {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
         if (show) {
-            transition.setFromX(-800);
+            transition.setFromX(-2000);
             transition.setToX(50);
             transition.setToY(75);
             
@@ -75,7 +75,8 @@ public abstract class mainAbstract {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
  
         transition.setFromX(-700);
-        transition.setToX(0); 
+        transition.setFromY(75);
+        transition.setToX(100); 
 
         transition.play();
     }
@@ -90,7 +91,7 @@ public abstract class mainAbstract {
     protected void addAndAnimateContentContainer(VBox container, HBox subContainer) {
         if(!subContainer.getChildren().contains(container)) {
             subContainer.getChildren().add(container);
-            animateVBox(container, true);
+            animateEntrance(container);
         }
     } 
 
@@ -107,6 +108,14 @@ public abstract class mainAbstract {
         FadeTransition fade = new FadeTransition(Duration.seconds(0.5), pane);
         fade.setFromValue(0.0);
         fade.setToValue(1.0);
+        fade.play();
+
+    }
+
+    protected void exitanimateLCC(AnchorPane pane){
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), pane);
+        fade.setFromValue(1.0);
+        fade.setToValue(0.0);
         fade.play();
 
     }
