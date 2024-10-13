@@ -1,0 +1,10 @@
+.text-field {
+    -fx-border-color: black; 
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;  
+}
+
+.text-field:focused {
+    -fx-border-color: #ff3b3b; 
+}
+

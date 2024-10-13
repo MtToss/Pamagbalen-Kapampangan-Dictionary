@@ -2,6 +2,7 @@ package pamagbalen.application.tool;
 
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -21,14 +22,17 @@ public abstract class mainAbstract {
     }
 
     protected void animateVBox(VBox box, boolean show) {
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), box);
+        System.out.println("IT ANIMATES");
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
         if (show) {
-            transition.setFromX(400);
-            transition.setToX(-800);
+            transition.setFromX(-800);
+            transition.setToX(50);
             transition.setToY(75);
+            
+            
         } else {
-            transition.setFromX(0);
-            transition.setToX(-300);
+            transition.setFromX(-400);
+            transition.setToX(0);
         }
         transition.play();
     }
@@ -42,8 +46,15 @@ public abstract class mainAbstract {
 
     protected void animateExitContentContainer(VBox box) {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
-        transition.setFromX(-800);
-        transition.setToX(-1800);
+        transition.setFromX(50);
+        transition.setToX(-800);
+        transition.play();
+    }
+
+    protected void animateExitWordofTheDayContainer(VBox box) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
+        transition.setFromX(50);
+        transition.setToX(-800);
         transition.play();
     }
 
@@ -51,5 +62,27 @@ public abstract class mainAbstract {
         PauseTransition pause = new PauseTransition(duration);
         pause.setOnFinished(event -> action.run());
         pause.play();
+    }
+
+    protected void setYAnimation(@SuppressWarnings("exports") Pane pane) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), pane);
+        transition.setFromY(-300);   
+        transition.play();
+    }
+
+    protected void animateEntrance(VBox box) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
+ 
+        transition.setFromX(-700);
+        transition.setToX(0); 
+
+        transition.play();
+    }
+
+    protected void animateBottomPaneContainer(AnchorPane pane) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), pane);
+
+        transition.setFromY(0);
+        transition.setToY(-400);
     }
 }
