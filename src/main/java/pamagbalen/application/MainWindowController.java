@@ -51,6 +51,11 @@ public class MainWindowController extends mainAbstract {
     VBox contentContainer = null;
     AnchorPane browseContainer = null;
     AnchorPane listContentContainer = null;
+
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+
+
     @FXML
     public void initialize() {
         setYAnimation(browsePane);
@@ -101,9 +106,6 @@ public class MainWindowController extends mainAbstract {
         homeLabel.setTextFill(Color.BLACK);
     }
 
-    
-
-
 
     @FXML
     private void buttonClicked() {
@@ -116,10 +118,21 @@ public class MainWindowController extends mainAbstract {
                 ContentContainerController contentContainerController = contentContainerLoader.getController();
 
                 contentContainerController.getWordSearched(wordContainer);
-
                 
-                if(subContainer.getChildren().contains(wordofTheDayContainer)) {                   
-                    subContainer.getChildren().add(contentContainer);            
+                if(subContainer.getChildren().contains(wordofTheDayContainer)) {
+                    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+                    pause.setOnFinished(event -> {
+                    
+                    contentContainer.setTranslateX(-subContainer.getWidth());
+    
+                    animateVBox(contentContainer, true);
+                    subContainer.getChildren().add(contentContainer);
+                
+                    });
+                    pause.play();
+
+
                 }
                 
                 contentContainer.getProperties().put("fxController", contentContainerController); // we store the controller to the content container for future purposes
@@ -127,27 +140,51 @@ public class MainWindowController extends mainAbstract {
             else if(subContainer.getChildren().contains(contentContainer) && !subContainer.getChildren().contains(wordofTheDayContainer)) {
                 // and we need to update it for another search, we can retrieve to controller and update the word.
                 ContentContainerController contentContainerController = (ContentContainerController) contentContainer.getProperties().get("fxController"); // this is what the future purposes means like, we get the controller. Since it is initialized 
-                contentContainerController.getWordSearched(wordContainer);
-                    
-    
+                contentContainer.setVisible(true);
+
+
+                animateExitContentContainer(contentContainer);
+                
+                PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+                pause.setOnFinished(event -> {
+                    contentContainerController.getWordSearched(wordContainer);
+                    contentContainer.setVisible(true);
+                    animateVBox(contentContainer, true);
+                });
+                pause.play();
+                
             }
 
             if (subContainer.getChildren().contains(wordofTheDayContainer)) {
 
-                subContainer.getChildren().remove(wordofTheDayContainer);     
+                animateExitWordofTheDayContainer(wordofTheDayContainer);
+                contentContainer.setTranslateX(-subContainer.getWidth());
+                PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                subContainer.getChildren().remove(wordofTheDayContainer); 
+
+                pause.setOnFinished(event -> {  
+                    animateVBox(contentContainer, true);
+                    
+                });
+                pause.play();
+                
             }
-        
+              
+            pause.setOnFinished(event -> {
+                if (!subContainer.getChildren().contains(contentContainer)) {
+                    subContainer.getChildren().add(contentContainer);
+                    animateVBox(contentContainer, true);
+                }   
+            });
+            pause.play();
+
             
-            if (!subContainer.getChildren().contains(contentContainer)) {
-                subContainer.getChildren().add(contentContainer);  
-            }   
-
             if(subContainer.getChildren().contains(listContentContainer)) {
-                subContainer.getChildren().remove(listContentContainer);
+                subContainer.getChildren().removeAll(listContentContainer);
             }
 
-            if(bottomPaneContainer.getChildren().remove(browseContainer)) {
-                bottomPaneContainer.getChildren().remove(browseContainer);
+            if(bottomPaneContainer.getChildren().contains(browseContainer)) {
+                bottomPaneContainer.getChildren().removeAll(browseContainer);
             }
 
             HBox.setMargin(contentContainer, new Insets(0, 5, 0, 5));
@@ -162,22 +199,26 @@ public class MainWindowController extends mainAbstract {
     public void labelHomeClicked() {
         if(browseContainer != null) {
             if(bottomPaneContainer.getChildren().contains(browseContainer)) {
-                    bottomPaneContainer.getChildren().remove(browseContainer);
+                bottomPaneContainer.getChildren().remove(browseContainer);
             }
-
-   
         }
 
         if(subContainer.getChildren().contains(contentContainer)) {
             subContainer.getChildren().remove(contentContainer);
+  
         }
 
         if(subContainer.getChildren().contains(listContentContainer)) {
             subContainer.getChildren().remove(listContentContainer);
         }
 
-        if(!subContainer.getChildren().contains(wordofTheDayContainer)) {
-            subContainer.getChildren().add(wordofTheDayContainer);
+        if(!subContainer.getChildren().contains(wordofTheDayContainer)) {  
+
+            pause.setOnFinished(event -> {
+                subContainer.getChildren().add(wordofTheDayContainer);
+                animateVBox(wordofTheDayContainer, true);
+            });
+            pause.play();
         }
 
         if(bottomPaneContainer.getChildren().contains(browseContainer)) {

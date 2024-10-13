@@ -22,7 +22,6 @@ public abstract class mainAbstract {
     }
 
     protected void animateVBox(VBox box, boolean show) {
-        System.out.println("IT ANIMATES");
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
         if (show) {
             transition.setFromX(-800);
