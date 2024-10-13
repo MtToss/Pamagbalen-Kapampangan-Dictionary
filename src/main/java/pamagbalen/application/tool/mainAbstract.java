@@ -92,4 +92,13 @@ public abstract class mainAbstract {
             animateVBox(container, true);
         }
     } 
+
+    protected void animateSelectorContainer(AnchorPane pane) {
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), pane);
+        
+        transition.setFromY(500);
+        transition.setToY(0);
+        transition.play();
+
+    }
 }

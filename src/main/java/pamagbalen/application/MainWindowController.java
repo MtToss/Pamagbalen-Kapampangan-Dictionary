@@ -127,10 +127,8 @@ public class MainWindowController extends mainAbstract {
                     contentContainer.setTranslateX(-subContainer.getWidth());
                     animateVBox(contentContainer, true);
                     subContainer.getChildren().add(contentContainer);
-                
                     });
                     pause.play();
-
 
                 }
                 
@@ -244,7 +242,15 @@ public class MainWindowController extends mainAbstract {
         
         
         if(!bottomPaneContainer.getChildren().contains(selectorContainer)) {
-            bottomPaneContainer.getChildren().add(selectorContainer);
+
+            PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
+            pause.setOnFinished(event -> {
+                animateSelectorContainer(selectorContainer);
+                bottomPaneContainer.getChildren().add(selectorContainer);
+            });
+            pause.play();
+
             
             AnchorPane.setTopAnchor(selectorContainer, 0.0);
             AnchorPane.setBottomAnchor(selectorContainer, 0.0);
