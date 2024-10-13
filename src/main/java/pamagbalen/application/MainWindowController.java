@@ -201,9 +201,18 @@ public class MainWindowController extends mainAbstract {
     public void labelHomeClicked() {
 
 
-        if(subContainer.getChildren().contains(contentContainer)) {
-            subContainer.getChildren().remove(contentContainer);
-  
+        if(subContainer.getChildren().contains(contentContainer)) 
+        {
+            
+            wordofTheDayContainer.setTranslateX(-3000);
+            animateExit(contentContainer);
+
+            PauseTransition pause = new PauseTransition(Duration.seconds(1));
+            pause.setOnFinished(e -> {
+                subContainer.getChildren().remove(contentContainer);
+                animateEntrance(wordofTheDayContainer);
+            });
+            pause.play();
         }
 
         
@@ -282,8 +291,12 @@ public class MainWindowController extends mainAbstract {
         }
 
         if (listContentContainer != null && !subContainer.getChildren().contains(listContentContainer)) {
-            animateLCC(listContentContainer);
-            subContainer.getChildren().add(listContentContainer);
+            PauseTransition pause = new PauseTransition(Duration.seconds(1));
+            pause.setOnFinished(event -> {
+                animateLCC(listContentContainer);
+                subContainer.getChildren().add(listContentContainer);
+            });
+
         }
     }
 
