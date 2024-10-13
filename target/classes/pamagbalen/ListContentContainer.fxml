@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="mainIndexContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.ListContentContainerController">
    <children>
-      <Label layoutX="90.0" layoutY="43.0" text="Index Of: " AnchorPane.bottomAnchor="489.0" AnchorPane.rightAnchor="776.0" AnchorPane.topAnchor="43.0">
+      <Label fx:id="indexLabel" layoutX="90.0" layoutY="43.0" text="Index Of: " AnchorPane.bottomAnchor="489.0" AnchorPane.rightAnchor="776.0" AnchorPane.topAnchor="43.0">
          <font>
             <Font size="22.0" />
          </font>
@@ -19,7 +19,7 @@
          </font>
       </Label>
       <VBox fx:id="subContainer" layoutX="489.0" layoutY="82.0" prefHeight="238.0" prefWidth="422.0" />
-      <ScrollPane hbarPolicy="NEVER" layoutX="73.0" layoutY="94.0" prefHeight="295.0" prefWidth="255.0" stylesheets="@css/scrollpane_style.css">
+      <ScrollPane fx:id="listPane" hbarPolicy="NEVER" layoutX="73.0" layoutY="94.0" prefHeight="295.0" prefWidth="255.0" stylesheets="@css/scrollpane_style.css">
          <content>
             <VBox fx:id="indexContainer" prefHeight="292.0" prefWidth="254.0" styleClass="scroll-pane" stylesheets="@css/scrollpane_style.css" />
          </content>

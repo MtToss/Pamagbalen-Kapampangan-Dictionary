@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -32,6 +33,12 @@ public class ListContentContainerController extends ListAbstract {
 
     @FXML
     Label labelAlphabet;
+    
+    @FXML
+    Label indexLabel;
+
+    @FXML
+    ScrollPane listPane;
 
     @FXML
     public void initialize() {
@@ -76,6 +83,11 @@ public class ListContentContainerController extends ListAbstract {
         
         indexContainer.getChildren().clear();
         labelAlphabet.setText(String.valueOf(alphabetContainer).toUpperCase());
+
+        animateLabel(indexLabel);
+        animateLabel(labelAlphabet);
+        animatelistContainer(listPane);
+        
 
         for (String[] words : filteredList) {
             System.out.println(words[0]);
