@@ -173,7 +173,16 @@ public class MainWindowController extends mainAbstract {
 
             
             if(subContainer.getChildren().contains(listContentContainer)) {
-                subContainer.getChildren().removeAll(listContentContainer);
+                contentContainer.setTranslateX(-subContainer.getWidth());
+                System.out.println("HI");
+                exitanimateLCC(listContentContainer);
+                PauseTransition pause = new PauseTransition(Duration.seconds(0.75));
+    
+                pause.setOnFinished(event -> {
+                    subContainer.getChildren().remove(listContentContainer);
+                    
+                });
+                pause.play();
             }
 
             if(bottomPaneContainer.getChildren().contains(selectorContainer)) {
@@ -197,15 +206,22 @@ public class MainWindowController extends mainAbstract {
   
         }
 
-        if(subContainer.getChildren().contains(listContentContainer)) {
-            subContainer.getChildren().remove(listContentContainer);
-        }
-
+        
         if(!subContainer.getChildren().contains(wordofTheDayContainer)) {  
-
+            if(subContainer.getChildren().contains(listContentContainer)) {
+                wordofTheDayContainer.setTranslateX(-3000);
+                exitanimateLCC(listContentContainer);
+                PauseTransition pause = new PauseTransition(Duration.seconds(0.75));
+    
+                pause.setOnFinished(event -> {
+                    subContainer.getChildren().remove(listContentContainer);
+                    animateEntrance(wordofTheDayContainer);
+                });
+                pause.play();
+            }
             System.out.println("PUMAPASOK");
             wordofTheDayContainer.setVisible(true);
-            animateVBox(wordofTheDayContainer, true);
+            
             subContainer.getChildren().add(wordofTheDayContainer);
         }
 
