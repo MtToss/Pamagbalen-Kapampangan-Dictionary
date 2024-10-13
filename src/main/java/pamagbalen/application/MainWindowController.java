@@ -49,7 +49,7 @@ public class MainWindowController extends mainAbstract {
     char alphabetContainer = 'b';
     VBox wordofTheDayContainer = null;
     VBox contentContainer = null;
-    AnchorPane browseContainer = null;
+    AnchorPane selectorContainer = null;
     AnchorPane listContentContainer = null;
 
     PauseTransition pause = new PauseTransition(Duration.seconds(1));
@@ -125,7 +125,6 @@ public class MainWindowController extends mainAbstract {
                     pause.setOnFinished(event -> {
                     
                     contentContainer.setTranslateX(-subContainer.getWidth());
-    
                     animateVBox(contentContainer, true);
                     subContainer.getChildren().add(contentContainer);
                 
@@ -140,15 +139,14 @@ public class MainWindowController extends mainAbstract {
             else if(subContainer.getChildren().contains(contentContainer) && !subContainer.getChildren().contains(wordofTheDayContainer)) {
                 // and we need to update it for another search, we can retrieve to controller and update the word.
                 ContentContainerController contentContainerController = (ContentContainerController) contentContainer.getProperties().get("fxController"); // this is what the future purposes means like, we get the controller. Since it is initialized 
-                contentContainer.setVisible(true);
 
 
                 animateExitContentContainer(contentContainer);
                 
                 PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
                 pause.setOnFinished(event -> {
+                    contentContainer.setTranslateX(-subContainer.getWidth());
                     contentContainerController.getWordSearched(wordContainer);
-                    contentContainer.setVisible(true);
                     animateVBox(contentContainer, true);
                 });
                 pause.play();
@@ -158,23 +156,20 @@ public class MainWindowController extends mainAbstract {
             if (subContainer.getChildren().contains(wordofTheDayContainer)) {
 
                 animateExitWordofTheDayContainer(wordofTheDayContainer);
-                contentContainer.setTranslateX(-subContainer.getWidth());
                 PauseTransition pause = new PauseTransition(Duration.seconds(1));
                 subContainer.getChildren().remove(wordofTheDayContainer); 
 
                 pause.setOnFinished(event -> {  
-                    animateVBox(contentContainer, true);
-                    
+                    contentContainer.setTranslateX(-subContainer.getWidth());
+                    animateVBox(contentContainer, true);         
                 });
                 pause.play();
                 
             }
               
             pause.setOnFinished(event -> {
-                if (!subContainer.getChildren().contains(contentContainer)) {
-                    subContainer.getChildren().add(contentContainer);
-                    animateVBox(contentContainer, true);
-                }   
+                contentContainer.setTranslateX(-subContainer.getWidth());
+                addAndAnimateContentContainer(contentContainer, subContainer);
             });
             pause.play();
 
@@ -183,8 +178,8 @@ public class MainWindowController extends mainAbstract {
                 subContainer.getChildren().removeAll(listContentContainer);
             }
 
-            if(bottomPaneContainer.getChildren().contains(browseContainer)) {
-                bottomPaneContainer.getChildren().removeAll(browseContainer);
+            if(bottomPaneContainer.getChildren().contains(selectorContainer)) {
+                bottomPaneContainer.getChildren().removeAll(selectorContainer);
             }
 
             HBox.setMargin(contentContainer, new Insets(0, 5, 0, 5));
@@ -197,9 +192,9 @@ public class MainWindowController extends mainAbstract {
 
     @FXML
     public void labelHomeClicked() {
-        if(browseContainer != null) {
-            if(bottomPaneContainer.getChildren().contains(browseContainer)) {
-                bottomPaneContainer.getChildren().remove(browseContainer);
+        if(selectorContainer != null) {
+            if(bottomPaneContainer.getChildren().contains(selectorContainer)) {
+                bottomPaneContainer.getChildren().remove(selectorContainer);
             }
         }
 
@@ -213,7 +208,7 @@ public class MainWindowController extends mainAbstract {
         }
 
         if(!subContainer.getChildren().contains(wordofTheDayContainer)) {  
-
+            pause.setDelay(Duration.seconds(0.2));
             pause.setOnFinished(event -> {
                 subContainer.getChildren().add(wordofTheDayContainer);
                 animateVBox(wordofTheDayContainer, true);
@@ -221,24 +216,23 @@ public class MainWindowController extends mainAbstract {
             pause.play();
         }
 
-        if(bottomPaneContainer.getChildren().contains(browseContainer)) {
-            bottomPaneContainer.getChildren().remove(browseContainer);
+        if(bottomPaneContainer.getChildren().contains(selectorContainer)) {
+            bottomPaneContainer.getChildren().remove(selectorContainer);
         }
     }
 
     @FXML
     public void labelBrowseClicked() {
 
-
-        if(browseContainer == null) {
-            FXMLLoader browseContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/Selector.fxml"));
+        if(selectorContainer == null) {
+            FXMLLoader selectorContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/Selector.fxml"));
             try {
-                browseContainer = browseContainerLoader.load();
+                selectorContainer = selectorContainerLoader.load();
             } catch (IOException e) {
                 
                 e.printStackTrace();
             }
-            ListController browseController = browseContainerLoader.getController();
+            ListController browseController = selectorContainerLoader.getController();
             browseController.setMainWindowController(this); 
 
         }
@@ -249,13 +243,13 @@ public class MainWindowController extends mainAbstract {
         
         
         
-        if(!bottomPaneContainer.getChildren().contains(browseContainer)) {
-            bottomPaneContainer.getChildren().add(browseContainer);
+        if(!bottomPaneContainer.getChildren().contains(selectorContainer)) {
+            bottomPaneContainer.getChildren().add(selectorContainer);
             
-            AnchorPane.setTopAnchor(browseContainer, 0.0);
-            AnchorPane.setBottomAnchor(browseContainer, 0.0);
-            AnchorPane.setLeftAnchor(browseContainer, null);
-            AnchorPane.setRightAnchor(browseContainer, 0.0);
+            AnchorPane.setTopAnchor(selectorContainer, 0.0);
+            AnchorPane.setBottomAnchor(selectorContainer, 0.0);
+            AnchorPane.setLeftAnchor(selectorContainer, null);
+            AnchorPane.setRightAnchor(selectorContainer, 0.0);
 
             if(subContainer.getChildren().contains(wordofTheDayContainer)) {
                 subContainer.getChildren().remove(wordofTheDayContainer);

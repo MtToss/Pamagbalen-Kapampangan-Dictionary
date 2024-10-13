@@ -3,6 +3,7 @@ package pamagbalen.application.tool;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -63,7 +64,7 @@ public abstract class mainAbstract {
         pause.play();
     }
 
-    protected void setYAnimation(@SuppressWarnings("exports") Pane pane) {
+    protected void setYAnimation(Pane pane) {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), pane);
         transition.setFromY(-300);   
         transition.play();
@@ -84,4 +85,11 @@ public abstract class mainAbstract {
         transition.setFromY(0);
         transition.setToY(-400);
     }
+
+    protected void addAndAnimateContentContainer(VBox container, HBox subContainer) {
+        if(!subContainer.getChildren().contains(container)) {
+            subContainer.getChildren().add(container);
+            animateVBox(container, true);
+        }
+    } 
 }
