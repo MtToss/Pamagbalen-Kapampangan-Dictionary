@@ -104,7 +104,7 @@ public abstract class mainAbstract {
     }
 
     protected void animateLCC(AnchorPane pane){
-        FadeTransition fade = new FadeTransition(Duration.seconds(1), pane);
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), pane);
         fade.setFromValue(0.0);
         fade.setToValue(1.0);
         fade.play();

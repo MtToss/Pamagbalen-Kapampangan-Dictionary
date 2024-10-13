@@ -155,9 +155,9 @@ public class MainWindowController extends mainAbstract {
 
                 animateExitWordofTheDayContainer(wordofTheDayContainer);
                 PauseTransition pause = new PauseTransition(Duration.seconds(1));
-                subContainer.getChildren().remove(wordofTheDayContainer); 
-
-                pause.setOnFinished(event -> {  
+                
+                pause.setOnFinished(event -> { 
+                    subContainer.getChildren().remove(wordofTheDayContainer); 
                     contentContainer.setTranslateX(-subContainer.getWidth());
                     animateVBox(contentContainer, true);         
                 });
@@ -174,6 +174,7 @@ public class MainWindowController extends mainAbstract {
             
             if(subContainer.getChildren().contains(listContentContainer)) {
                 subContainer.getChildren().removeAll(listContentContainer);
+                
             }
 
             if(bottomPaneContainer.getChildren().contains(selectorContainer)) {
@@ -216,7 +217,6 @@ public class MainWindowController extends mainAbstract {
 
     @FXML
     public void labelBrowseClicked() {
-        subContainer.getChildren().remove(wordofTheDayContainer);
         if(selectorContainer == null) {
             FXMLLoader selectorContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/Selector.fxml"));
             try {
@@ -255,10 +255,12 @@ public class MainWindowController extends mainAbstract {
 
         }
 
-        if(!subContainer.getChildren().contains(wordofTheDayContainer)) {
-            wordofTheDayContainer.setVisible(false);
+        if(subContainer.getChildren().contains(wordofTheDayContainer)) {
+            System.out.println("GUMAGANA");
+            animateExitWordofTheDayContainer(wordofTheDayContainer);
             PauseTransition pause = new PauseTransition(Duration.seconds(0.8));
             pause.setOnFinished(event -> {
+                wordofTheDayContainer.setVisible(false);
                 subContainer.getChildren().remove(wordofTheDayContainer);
             });
             pause.play();

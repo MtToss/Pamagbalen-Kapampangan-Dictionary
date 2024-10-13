@@ -32,9 +32,6 @@ public abstract class ListAbstract {
         transition.play();
     }
 
-
-    
-
     protected void animateContentContainer(VBox container) {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), container);
         transition.setFromX(2000);
