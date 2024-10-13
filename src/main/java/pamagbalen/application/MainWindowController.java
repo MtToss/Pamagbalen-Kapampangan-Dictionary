@@ -221,7 +221,7 @@ public class MainWindowController extends mainAbstract {
 
     @FXML
     public void labelBrowseClicked() {
-
+        subContainer.getChildren().remove(wordofTheDayContainer);
         if(selectorContainer == null) {
             FXMLLoader selectorContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/Selector.fxml"));
             try {
@@ -257,10 +257,17 @@ public class MainWindowController extends mainAbstract {
             AnchorPane.setLeftAnchor(selectorContainer, null);
             AnchorPane.setRightAnchor(selectorContainer, 0.0);
 
-            if(subContainer.getChildren().contains(wordofTheDayContainer)) {
+
+        }
+
+        if(!subContainer.getChildren().contains(wordofTheDayContainer)) {
+            System.out.println("PUMAPASOK");
+            wordofTheDayContainer.setVisible(false);
+            PauseTransition pause = new PauseTransition(Duration.seconds(0.8));
+            pause.setOnFinished(event -> {
                 subContainer.getChildren().remove(wordofTheDayContainer);
-  
-            }
+            });
+            pause.play();
         }
 
         if (listContentContainer != null && !subContainer.getChildren().contains(listContentContainer)) {
