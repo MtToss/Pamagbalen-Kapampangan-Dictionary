@@ -6,14 +6,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
+import pamagbalen.application.tool.ListAbstract;
 
-public class ListContentContainerController {
+public class ListContentContainerController extends ListAbstract {
     
     int i = 1;
     Label wordContainer = null;
@@ -29,6 +33,12 @@ public class ListContentContainerController {
 
     @FXML
     Label labelAlphabet;
+    
+    @FXML
+    Label indexLabel;
+
+    @FXML
+    ScrollPane listPane;
 
     @FXML
     public void initialize() {
@@ -74,6 +84,11 @@ public class ListContentContainerController {
         indexContainer.getChildren().clear();
         labelAlphabet.setText(String.valueOf(alphabetContainer).toUpperCase());
 
+        animateLabel(indexLabel);
+        animateLabel(labelAlphabet);
+        animatelistContainer(listPane);
+        
+
         for (String[] words : filteredList) {
             System.out.println(words[0]);
             Label wordLabel = new Label(String.valueOf(capitalize(words[0]))); 
@@ -92,6 +107,7 @@ public class ListContentContainerController {
                 onLabelClick(words); 
 
             });
+            
             indexContainer.getChildren().add(wordLabel);
         }
     }

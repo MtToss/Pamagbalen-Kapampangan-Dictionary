@@ -271,6 +271,7 @@ public class MainWindowController extends mainAbstract {
         }
 
         if (listContentContainer != null && !subContainer.getChildren().contains(listContentContainer)) {
+            animateLCC(listContentContainer);
             subContainer.getChildren().add(listContentContainer);
         }
     }

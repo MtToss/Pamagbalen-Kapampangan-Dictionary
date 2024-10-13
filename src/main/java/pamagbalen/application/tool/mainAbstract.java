@@ -2,6 +2,7 @@ package pamagbalen.application.tool;
 
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
+import javafx.animation.FadeTransition;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -99,6 +100,14 @@ public abstract class mainAbstract {
         transition.setFromY(500);
         transition.setToY(0);
         transition.play();
+
+    }
+
+    protected void animateLCC(AnchorPane pane){
+        FadeTransition fade = new FadeTransition(Duration.seconds(1), pane);
+        fade.setFromValue(0.0);
+        fade.setToValue(1.0);
+        fade.play();
 
     }
 }
