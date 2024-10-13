@@ -190,11 +190,7 @@ public class MainWindowController extends mainAbstract {
 
     @FXML
     public void labelHomeClicked() {
-        if(selectorContainer != null) {
-            if(bottomPaneContainer.getChildren().contains(selectorContainer)) {
-                bottomPaneContainer.getChildren().remove(selectorContainer);
-            }
-        }
+
 
         if(subContainer.getChildren().contains(contentContainer)) {
             subContainer.getChildren().remove(contentContainer);
@@ -206,12 +202,11 @@ public class MainWindowController extends mainAbstract {
         }
 
         if(!subContainer.getChildren().contains(wordofTheDayContainer)) {  
-            pause.setDelay(Duration.seconds(0.2));
-            pause.setOnFinished(event -> {
-                subContainer.getChildren().add(wordofTheDayContainer);
-                animateVBox(wordofTheDayContainer, true);
-            });
-            pause.play();
+
+            System.out.println("PUMAPASOK");
+            wordofTheDayContainer.setVisible(true);
+            animateVBox(wordofTheDayContainer, true);
+            subContainer.getChildren().add(wordofTheDayContainer);
         }
 
         if(bottomPaneContainer.getChildren().contains(selectorContainer)) {
@@ -261,7 +256,6 @@ public class MainWindowController extends mainAbstract {
         }
 
         if(!subContainer.getChildren().contains(wordofTheDayContainer)) {
-            System.out.println("PUMAPASOK");
             wordofTheDayContainer.setVisible(false);
             PauseTransition pause = new PauseTransition(Duration.seconds(0.8));
             pause.setOnFinished(event -> {
@@ -278,7 +272,6 @@ public class MainWindowController extends mainAbstract {
     @FXML
     public void loadListContentContainer(char letter) {
         try {
-
             if(subContainer.getChildren().contains(listContentContainer)) {
                 subContainer.getChildren().remove(listContentContainer);
             }

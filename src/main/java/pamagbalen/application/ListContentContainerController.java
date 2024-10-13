@@ -6,14 +6,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
+import pamagbalen.application.tool.ListAbstract;
 
-public class ListContentContainerController {
+public class ListContentContainerController extends ListAbstract {
     
     int i = 1;
     Label wordContainer = null;
@@ -92,6 +95,7 @@ public class ListContentContainerController {
                 onLabelClick(words); 
 
             });
+            
             indexContainer.getChildren().add(wordLabel);
         }
     }
@@ -110,15 +114,22 @@ public class ListContentContainerController {
                 FXMLLoader contentContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/ContentContainer.fxml"));
                 contentContainer = contentContainerLoader.load();
                 ContentContainerController contentContainerController = contentContainerLoader.getController();
-
+                
+                animateContentContainer(contentContainer);
                 contentContainerController.getWordSearched(wordContainer);
-
+                
                 contentContainer.getProperties().put("fxController", contentContainerController); // we store the controller to the content container for future purposes
             } 
             else {
                 ContentContainerController contentContainerController = (ContentContainerController) contentContainer.getProperties().get("fxController"); // this is what the future purposes means like, we get the controller. Since it is initialized 
-                
-                contentContainerController.getWordSearched(wordContainer);  // and we need to update it for another search, we can retrieve to controller and update the word.
+                animateContentContainerFade(contentContainer);
+
+                PauseTransition pause = new PauseTransition(Duration.seconds(0.7));
+                pause.setOnFinished(event -> {
+                    animateContentContainer(contentContainer);
+                    contentContainerController.getWordSearched(wordContainer);
+                });
+                pause.play();
             }
 
             if (!subContainer.getChildren().contains(contentContainer)) {
