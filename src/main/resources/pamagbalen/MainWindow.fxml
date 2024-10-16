@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="831.0" prefWidth="1601.0" style="-fx-background-color: D49AF8;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.MainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="831.0" prefWidth="1601.0" style="-fx-background-color: GRAY;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.MainWindowController">
    <children>
       <VBox fx:id="vBoxContainer" layoutY="8.0" prefHeight="584.0" prefWidth="954.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,11 +21,11 @@
                <children>
                   <AnchorPane layoutX="371.0" layoutY="-3.0" prefHeight="140.0" prefWidth="1601.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <HBox layoutX="14.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <HBox layoutX="14.0" layoutY="-2.0" prefHeight="143.0" prefWidth="1601.0" style="-fx-background-color: LEMONCHIFFON;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
                            <children>
-                              <ImageView fitHeight="121.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="129.0" fitWidth="353.0" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
-                                    <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                                    <Insets />
                                  </HBox.margin>
                                  <image>
                                     <Image url="@img/TitleImage.png" />
@@ -33,38 +33,42 @@
                               </ImageView>
                               <AnchorPane fx:id="browseAnchorPane" onMouseEntered="#onBrowsePaneShow" onMouseExited="#onBrowsePaneHide" prefHeight="136.0" prefWidth="402.0">
                                  <children>
-                                    <Pane fx:id="browsePane" layoutX="-18.0" layoutY="-300.0" onMouseClicked="#labelBrowseClicked" prefHeight="200.0" prefWidth="295.0" style="-fx-background-color: #5c5cff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                    <Label fx:id="browseLabel" layoutX="58.0" layoutY="61.0" onMouseClicked="#labelBrowseClicked" prefHeight="36.0" prefWidth="295.0" stylesheets="@css/style.css" text="                    Browse" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-                                       <font>
-                                          <Font name="Impact" size="25.0" />
-                                       </font>
-                                    </Label>
+                                    <Pane fx:id="browsePane" layoutX="-18.0" layoutY="-300.0" onMouseClicked="#labelBrowseClicked" prefHeight="200.0" prefWidth="295.0" style="-fx-background-color: STEELBLUE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label fx:id="browseLabel" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" layoutX="8.0" layoutY="-3.0" onMouseClicked="#labelBrowseClicked" prefHeight="143.0" prefWidth="348.0" text="Browse" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                             <font>
+                                                <Font name="Courier New Bold" size="65.0" />
+                                             </font>
+                                          </Label>
+                                       </children></Pane>
                                  </children>
                               </AnchorPane>
                               <AnchorPane fx:id="homeAnchorPane" onMouseEntered="#onHomePaneShow" onMouseExited="#onHomePaneHide" prefHeight="138.0" prefWidth="391.0">
                                  <children>
-                                    <Pane fx:id="homePane" layoutX="-46.0" onMouseClicked="#labelHomeClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #5c5cff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                    <Label fx:id="homeLabel" layoutX="120.0" layoutY="61.0" onMouseClicked="#labelHomeClicked" prefHeight="36.0" prefWidth="268.0" stylesheets="@css/style.css" text="                     Home" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-                                       <font>
-                                          <Font name="Impact" size="25.0" />
-                                       </font>
-                                    </Label>
+                                    <Pane fx:id="homePane" onMouseClicked="#labelHomeClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: STEELBLUE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label fx:id="homeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="-2.0" onMouseClicked="#labelHomeClicked" prefHeight="143.0" prefWidth="348.0" text="Home" textFill="WHITE">
+                                             <font>
+                                                <Font name="Courier New Bold" size="65.0" />
+                                             </font>
+                                          </Label>
+                                       </children></Pane>
                                  </children>
                               </AnchorPane>
-                              <TextField fx:id="searchTextField" prefHeight="50.0" prefWidth="400.0" promptText="Enter Dictionary..." stylesheets="@css/search_textfield_style.css">
+                              <TextField fx:id="searchTextField" prefHeight="61.0" prefWidth="394.0" promptText="Enter Dictionary..." stylesheets="@css/search_textfield_style.css">
                                  <HBox.margin>
-                                    <Insets bottom="20.0" left="225.0" top="55.0" />
+                                    <Insets left="50.0" top="40.0" />
                                  </HBox.margin>
                                  <font>
                                     <Font size="21.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="searchButton" mnemonicParsing="false" onMouseClicked="#buttonClicked" prefHeight="44.0" prefWidth="279.0" stylesheets="@css/search_button_style.css" text="Search">
+                              <Button fx:id="searchButton" mnemonicParsing="false" onMouseClicked="#buttonClicked" prefHeight="58.0" prefWidth="193.0" stylesheets="@css/search_button_style.css" text="Search">
                                  <HBox.margin>
-                                    <Insets left="55.0" right="20.0" top="55.0" />
+                                    <Insets bottom="35.0" left="10.0" right="20.0" top="40.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font name="Courier New Bold" size="30.0" />
                                  </font>
                               </Button>
                            </children>
@@ -78,16 +82,16 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <BorderPane layoutX="176.0" layoutY="49.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <BorderPane layoutX="176.0" layoutY="49.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <HBox fx:id="subContainer" layoutX="186.0" layoutY="122.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <HBox fx:id="subContainer" layoutX="186.0" layoutY="122.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </center>
                      <bottom>
-                        <AnchorPane fx:id="bottomPaneContainer" prefHeight="82.0" prefWidth="1601.0" BorderPane.alignment="CENTER" />
+                        <AnchorPane fx:id="bottomPaneContainer" prefHeight="82.0" prefWidth="1601.0" style="-fx-background-color: GRAY;" BorderPane.alignment="CENTER" />
                      </bottom>
                   </BorderPane>
                </children></AnchorPane>
