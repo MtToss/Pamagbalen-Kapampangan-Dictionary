@@ -88,6 +88,7 @@ public class MainWindowController extends mainAbstract {
     public void onBrowsePaneShow() {
         animatePane(browsePane, true); 
         browseLabel.setTextFill(Color.web("#ff5c5c"));
+        browseLabel.setTextFill(Color.WHITE);
     }
 
     @FXML
@@ -99,7 +100,7 @@ public class MainWindowController extends mainAbstract {
     @FXML
     public void onHomePaneShow() {
         animatePane(homePane, true);
-        homeLabel.setTextFill(Color.web("#ff5c5c"));
+        homeLabel.setTextFill(Color.WHITE);
     }
 
     @FXML
