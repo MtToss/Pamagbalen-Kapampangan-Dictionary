@@ -8,35 +8,36 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="845.0" style="-fx-background-color: grey;" styleClass="anchor-pane" stylesheets="@css/contentcontainerstyle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.WordofTheDayController">
+<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="698.0" style="-fx-background-color: grey;" styleClass="anchor-pane" stylesheets="@css/contentcontainerstyle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.WordofTheDayController">
    <children>
-      <Label fx:id="labelContainer1" alignment="CENTER" prefHeight="43.0" prefWidth="273.0" style="-fx-background-color: STEELBLUE; -fx-background-radius: 10;" text="Kapampangan" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Courier New Bold" size="35.0" />
-         </font>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="labelContainer1" alignment="CENTER" prefHeight="24.0" prefWidth="273.0" style="-fx-background-color: STEELBLUE; -fx-background-radius: 10;" text="Kapampangan" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="8.0">
+               <font>
+                  <Font name="Courier New Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelContainer" layoutX="339.0" layoutY="8.0" prefHeight="18.0" prefWidth="301.0" style="-fx-background-color: STEELBLUE;" stylesheets="@css/title_label.css" text=" Word of The Day" textFill="WHITE" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="339.0" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="8.0">
+               <font>
+                  <Font name="Courier New Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
          <VBox.margin>
-            <Insets left="15.0" />
+            <Insets bottom="20.0" />
          </VBox.margin>
-      </Label>
-      <Label fx:id="labelContainer" prefHeight="34.0" prefWidth="352.0" style="-fx-background-color: STEELBLUE;" stylesheets="@css/title_label.css" text=" Word of The Day" textFill="WHITE">
-         <font>
-            <Font name="Courier New Bold" size="35.0" />
-         </font>
+      </AnchorPane>
+      <AnchorPane prefHeight="325.0" prefWidth="730.0" style="-fx-background-color: DIMGRAY; -fx-border-color: LEMONCHIFFON; -fx-border-radius: 5; -fx-border-width: 5;">
          <VBox.margin>
-            <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
-         </VBox.margin>
-      </Label>
-      <AnchorPane prefHeight="264.0" prefWidth="715.0" style="-fx-background-color: DIMGRAY; -fx-border-color: LEMONCHIFFON; -fx-border-radius: 5; -fx-border-width: 5;">
-         <VBox.margin>
-            <Insets bottom="10.0" />
+            <Insets bottom="10.0" left="5.0" right="5.0" />
          </VBox.margin>
          <children>
-            <Label alignment="CENTER" layoutX="414.0" layoutY="24.0" prefHeight="31.0" prefWidth="166.0" style="-fx-background-radius: 15; -fx-background-color: STEELBLUE;" text="Definition" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="405.0" layoutY="30.0" prefHeight="41.0" prefWidth="179.0" style="-fx-background-radius: 15; -fx-background-color: STEELBLUE;" text="Definition" textFill="WHITE">
                <font>
                   <Font name="Courier New Bold" size="25.0" />
                </font>
             </Label>
-            <TextArea fx:id="definitionContainer" editable="false" layoutX="415.0" layoutY="59.0" prefHeight="199.0" prefWidth="361.0" promptText="Pre-Text" style="-fx-border-color: STEELBLUE; -fx-border-radius: 0; -fx-border-width: 3;" text="Pre-Text" wrapText="true">
+            <TextArea fx:id="definitionContainer" editable="false" layoutX="410.0" layoutY="74.0" prefHeight="212.0" prefWidth="245.0" promptText="Pre-Text" style="-fx-border-color: STEELBLUE; -fx-border-radius: 0; -fx-border-width: 3;" text="Pre-Text" wrapText="true">
                <font>
                   <Font name="MS UI Gothic" size="24.0" />
                </font>
@@ -44,14 +45,14 @@
                   <Cursor fx:constant="CROSSHAIR" />
                </cursor>
             </TextArea>
-            <AnchorPane layoutX="14.0" layoutY="21.0" prefHeight="250.0" prefWidth="374.0">
+            <AnchorPane layoutX="10.0" layoutY="36.0" prefHeight="260.0" prefWidth="378.0">
                <children>
                   <Label fx:id="kapampanganWord" alignment="CENTER" layoutX="12.0" layoutY="15.0" prefHeight="31.0" prefWidth="350.0" style="-fx-background-color: STEELBLUE;" stylesheets="@css/title_label.css" text="Kapampangan Word" textFill="WHITE" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="15.0">
                      <font>
                         <Font name="Courier New Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="11.0" layoutY="72.0" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: WHEAT;" text="Tagalog:">
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="72.0" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: WHEAT;" text="Tagalog:">
                      <font>
                         <Font name="Georgia" size="25.0" />
                      </font>

@@ -61,6 +61,8 @@ public class MainWindowController extends mainAbstract {
         setYAnimation(browsePane);
         setYAnimation(homePane);
         loadArea();
+        wordofTheDayContainer.setTranslateY(75);
+        wordofTheDayContainer.setTranslateX(100); 
         
     }
 
@@ -204,7 +206,7 @@ public class MainWindowController extends mainAbstract {
         if(subContainer.getChildren().contains(contentContainer)) 
         {
             
-            wordofTheDayContainer.setTranslateX(-3000);
+            wordofTheDayContainer.setTranslateX(-8000);
             animateExit(contentContainer);
 
             PauseTransition pause = new PauseTransition(Duration.seconds(1));
@@ -218,7 +220,7 @@ public class MainWindowController extends mainAbstract {
         
         if(!subContainer.getChildren().contains(wordofTheDayContainer)) {  
             if(subContainer.getChildren().contains(listContentContainer)) {
-                wordofTheDayContainer.setTranslateX(-3000);
+                wordofTheDayContainer.setTranslateX(-8000);
                 exitanimateLCC(listContentContainer);
                 PauseTransition pause = new PauseTransition(Duration.seconds(0.75));
     

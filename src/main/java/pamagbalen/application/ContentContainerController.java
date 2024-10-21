@@ -54,7 +54,6 @@ public class ContentContainerController {
                 for (int i = 0; i < words.length; i++) {
                     words[i] = words[i].replace("\"", "").trim();
                 }
-
                 wordMap.put(words[0].toLowerCase(), words); 
                 wordMap.put(words[1].toLowerCase(), words); 
                 wordMap.put(words[2].toLowerCase(), words); 

@@ -74,7 +74,7 @@ public abstract class mainAbstract {
     protected void animateEntrance(VBox box) {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.5), box);
  
-        transition.setFromX(-700);
+        transition.setFromX(-800);
         transition.setFromY(75);
         transition.setToX(100); 
 
