@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -31,9 +30,8 @@
                                     <Image url="@img/TitleImage.png" />
                                  </image>
                               </ImageView>
-                              <AnchorPane fx:id="browseAnchorPane" onMouseEntered="#onBrowsePaneShow" onMouseExited="#onBrowsePaneHide" prefHeight="136.0" prefWidth="402.0">
+                              <AnchorPane fx:id="browseAnchorPane" onMouseEntered="#onBrowsePaneShow" onMouseExited="#onBrowsePaneHide" prefHeight="136.0" prefWidth="402.0" style="-fx-background-color: STEELBLUE;">
                                  <children>
-                                    <Pane fx:id="browsePane" layoutX="8.0" onMouseClicked="#labelBrowseClicked" prefHeight="143.0" prefWidth="369.0" style="-fx-background-color: GRAY;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                     <Label fx:id="browseLabel" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" layoutX="8.0" onMouseClicked="#labelBrowseClicked" prefHeight="143.0" prefWidth="340.0" style="tex: bl;" text="Browse" textAlignment="CENTER" wrapText="true">
                                        <font>
                                           <Font name="Courier New Bold" size="48.0" />
@@ -41,9 +39,8 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="homeAnchorPane" onMouseEntered="#onHomePaneShow" onMouseExited="#onHomePaneHide" prefHeight="138.0" prefWidth="391.0">
+                              <AnchorPane fx:id="homeAnchorPane" onMouseEntered="#onHomePaneShow" onMouseExited="#onHomePaneHide" prefHeight="143.0" prefWidth="340.0" style="-fx-background-color: STEELBLUE;">
                                  <children>
-                                    <Pane fx:id="homePane" onMouseClicked="#labelHomeClicked" prefHeight="143.0" prefWidth="314.0" style="-fx-background-color: GRAY;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                     <Label fx:id="homeLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#labelHomeClicked" prefHeight="143.0" prefWidth="348.0" text="Home">
                                        <font>
                                           <Font name="Courier New Bold" size="48.0" />

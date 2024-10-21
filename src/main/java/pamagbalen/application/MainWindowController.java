@@ -46,6 +46,12 @@ public class MainWindowController extends mainAbstract {
     @FXML
     private Label browseLabel, homeLabel;
 
+    @FXML
+    private AnchorPane browseAnchorPane;
+
+    @FXML
+    private AnchorPane homeAnchorPane;
+
     char alphabetContainer = 'b';
     VBox wordofTheDayContainer = null;
     VBox contentContainer = null;
@@ -86,26 +92,29 @@ public class MainWindowController extends mainAbstract {
 
     @FXML
     public void onBrowsePaneShow() {
-        animatePane(browsePane, true); 
-        browseLabel.setTextFill(Color.web("#ff5c5c"));
+        //animatePane(browsePane, true); 
+        browseAnchorPane.setStyle("-fx-background-color: ROYALBLUE;");
         browseLabel.setTextFill(Color.WHITE);
     }
 
     @FXML
     public void onBrowsePaneHide() {
-        animatePane(browsePane, false); 
+        //animatePane(browsePane, false); 
+        browseAnchorPane.setStyle("-fx-background-color: STEELBLUE;");
         browseLabel.setTextFill(Color.BLACK);
     }
 
     @FXML
     public void onHomePaneShow() {
-        animatePane(homePane, true);
+        //animatePane(homePane, true);
+        homeAnchorPane.setStyle("-fx-background-color: ROYALBLUE;");
         homeLabel.setTextFill(Color.WHITE);
     }
 
     @FXML
     public void onHomePaneHide() {
-        animatePane(homePane, false);
+        //animatePane(homePane, false);
+        homeAnchorPane.setStyle("-fx-background-color: STEELBLUE;");
         homeLabel.setTextFill(Color.BLACK);
     }
 
