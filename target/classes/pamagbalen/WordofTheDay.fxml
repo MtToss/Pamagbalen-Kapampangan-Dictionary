@@ -12,12 +12,12 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label fx:id="labelContainer1" alignment="CENTER" layoutX="9.0" layoutY="9.0" prefHeight="19.0" prefWidth="109.0" style="-fx-background-color: STEELBLUE; -fx-background-radius: 10;" text="Kapampangan" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="560.0" AnchorPane.topAnchor="9.0">
+            <Label fx:id="labelContainer1" alignment="CENTER" layoutX="9.0" layoutY="1.0" prefHeight="29.0" prefWidth="167.0" style="-fx-background-color: STEELBLUE; -fx-background-radius: 15;" text="Kapampangan" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="502.0" AnchorPane.topAnchor="1.0">
                <font>
-                  <Font name="Courier New Bold Italic" size="15.0" />
+                  <Font name="Courier New Bold Italic" size="22.0" />
                </font>
             </Label>
-            <Label fx:id="labelContainer" layoutX="3.0" layoutY="34.0" prefHeight="18.0" prefWidth="301.0" style="-fx-background-color: STEELBLUE;" stylesheets="@css/title_label.css" text=" Word of The Day" textFill="WHITE" AnchorPane.bottomAnchor="-13.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="429.0" AnchorPane.topAnchor="34.0">
+            <Label fx:id="labelContainer" layoutX="9.0" layoutY="34.0" prefHeight="28.0" prefWidth="240.0" style="-fx-background-color: STEELBLUE;" stylesheets="@css/title_label.css" text=" Word of The Day" textFill="WHITE" AnchorPane.bottomAnchor="-13.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="429.0" AnchorPane.topAnchor="34.0">
                <font>
                   <Font name="Courier New Bold" size="24.0" />
                </font>
