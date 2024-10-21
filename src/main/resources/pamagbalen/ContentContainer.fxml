@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="735.0" style="-fx-background-color: white;" styleClass="anchor-pane" stylesheets="@css/contentcontainerstyle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.ContentContainerController">
+<VBox fx:id="vBoxContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="735.0" style="-fx-background-color: grey;" styleClass="anchor-pane" stylesheets="@css/contentcontainerstyle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pamagbalen.application.ContentContainerController">
    <children>
       <Label fx:id="labelContainer1" prefHeight="19.0" prefWidth="493.0" textFill="#cd2b2b">
          <font>
@@ -17,7 +17,7 @@
             <Insets left="15.0" />
          </VBox.margin>
       </Label>
-      <Label fx:id="labelContainer" prefHeight="36.0" prefWidth="515.0" text="Kapampangan">
+      <Label fx:id="labelContainer" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="235.0" style="-fx-background-color: STEELBLUE; -fx-background-radius: 15;" text="Kapampangan" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Courier New Bold" size="30.0" />
          </font>
@@ -25,44 +25,44 @@
             <Insets left="15.0" right="10.0" />
          </VBox.margin>
       </Label>
-      <AnchorPane prefHeight="282.0" prefWidth="735.0" style="-fx-background-color: white;">
+      <AnchorPane prefHeight="282.0" prefWidth="735.0" style="-fx-background-color: dimgray;">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
          <children>
-            <Label layoutX="25.0" layoutY="143.0" prefHeight="29.0" prefWidth="134.0" text="Definition">
+            <Label layoutX="25.0" layoutY="143.0" prefHeight="29.0" prefWidth="148.0" style="-fx-background-color: steelblue;" text="Definition" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="Courier New Bold" size="22.0" />
                </font>
             </Label>
-            <Label fx:id="kapampanganWord" layoutX="14.0" layoutY="21.0" prefHeight="36.0" prefWidth="235.0" text="Kapampangan Word" AnchorPane.bottomAnchor="225.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0">
+            <Label fx:id="kapampanganWord" alignment="CENTER" layoutX="29.0" layoutY="26.0" prefHeight="36.0" prefWidth="309.0" style="-fx-background-color: steelblue; -fx-background-radius: 15;" text="Kapampangan Word" textFill="WHITE" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="26.0">
                <font>
-                  <Font name="Franklin Gothic Medium" size="23.0" />
+                  <Font name="Courier New Bold" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="31.0" layoutY="62.0" prefHeight="32.0" prefWidth="54.0" text="Tagalog:" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="62.0">
+            <Label alignment="CENTER" layoutX="25.0" layoutY="68.0" prefHeight="35.0" prefWidth="127.0" style="-fx-background-color: Lemonchiffon;" text="Tagalog:" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="68.0">
                <font>
-                  <Font name="Sitka Small" size="12.0" />
+                  <Font name="Georgia" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="31.0" layoutY="86.0" prefHeight="32.0" prefWidth="54.0" text="English:" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="86.0">
+            <Label alignment="CENTER" layoutX="25.0" layoutY="104.0" prefHeight="34.0" prefWidth="127.0" style="-fx-background-color: lemonchiffon;" text="English:" AnchorPane.bottomAnchor="162.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="104.0">
                <font>
-                  <Font name="Sitka Small" size="12.0" />
+                  <Font name="Georgia" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="tagalogWord" layoutX="92.0" layoutY="62.0" prefHeight="32.0" prefWidth="178.0" text="Word" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="92.0" AnchorPane.topAnchor="62.0">
+            <Label fx:id="tagalogWord" alignment="CENTER" layoutX="160.0" layoutY="68.0" prefHeight="35.0" prefWidth="176.0" style="-fx-background-color: white;" text="Word" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="68.0">
                <font>
-                  <Font name="Sitka Small" size="12.0" />
+                  <Font name="Georgia" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="englishWord" layoutX="92.0" layoutY="86.0" prefHeight="32.0" prefWidth="167.0" text="Word" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="92.0" AnchorPane.topAnchor="86.0">
+            <Label fx:id="englishWord" alignment="CENTER" layoutX="160.0" layoutY="104.0" prefHeight="35.0" prefWidth="176.0" style="-fx-background-color: white;" text="Word" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="104.0">
                <font>
-                  <Font name="Sitka Small" size="12.0" />
+                  <Font name="Georgia" size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="definitionContainer" editable="false" layoutX="25.0" layoutY="175.0" prefHeight="125.0" prefWidth="650.0" promptText="Pre-Text" text="Pre-Text" wrapText="true">
+            <TextArea fx:id="definitionContainer" editable="false" layoutX="25.0" layoutY="175.0" prefHeight="102.0" prefWidth="650.0" promptText="Pre-Text" text="Pre-Text" wrapText="true">
                <font>
-                  <Font size="24.0" />
+                  <Font name="MS Gothic" size="24.0" />
                </font>
             </TextArea>
          </children>
