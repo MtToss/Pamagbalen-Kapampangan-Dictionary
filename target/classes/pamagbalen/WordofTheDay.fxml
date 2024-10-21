@@ -47,27 +47,27 @@
             </TextArea>
             <AnchorPane layoutX="10.0" layoutY="36.0" prefHeight="260.0" prefWidth="378.0">
                <children>
-                  <Label fx:id="kapampanganWord" alignment="CENTER" layoutX="12.0" layoutY="18.0" prefHeight="31.0" prefWidth="350.0" style="-fx-background-color: STEELBLUE;" stylesheets="@css/title_label.css" text="Kapampangan Word" textFill="WHITE" AnchorPane.bottomAnchor="213.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="18.0">
+                  <Label fx:id="kapampanganWord" alignment="CENTER" layoutX="10.0" layoutY="-1.0" prefHeight="31.0" prefWidth="350.0" style="-fx-background-color: STEELBLUE;" stylesheets="@css/title_label.css" text="Kapampangan Word" textFill="WHITE" AnchorPane.bottomAnchor="232.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="-1.0">
                      <font>
                         <Font name="Courier New Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="11.0" layoutY="72.0" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: WHEAT;" text="Tagalog:">
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="44.0" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: WHEAT;" text="Tagalog:">
                      <font>
                         <Font name="Georgia" size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="149.0" prefHeight="38.0" prefWidth="111.0" style="-fx-background-color: WHEAT;" text="English:" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="149.0">
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="146.0" prefHeight="38.0" prefWidth="111.0" style="-fx-background-color: WHEAT;" text="English:" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="146.0">
                      <font>
                         <Font name="Georgia" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tagalogWord" alignment="CENTER" layoutX="122.0" layoutY="72.0" prefHeight="36.0" prefWidth="237.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="72.0">
+                  <Label fx:id="tagalogWord" alignment="CENTER" layoutX="122.0" layoutY="44.0" prefHeight="45.0" prefWidth="237.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="173.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="44.0">
                      <font>
                         <Font name="Georgia" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="englishWord" alignment="CENTER" layoutX="122.0" layoutY="149.0" prefHeight="37.0" prefWidth="236.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="149.0">
+                  <Label fx:id="englishWord" alignment="CENTER" layoutX="122.0" layoutY="146.0" prefHeight="37.0" prefWidth="236.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="146.0">
                      <font>
                         <Font name="Georgia" size="25.0" />
                      </font>
