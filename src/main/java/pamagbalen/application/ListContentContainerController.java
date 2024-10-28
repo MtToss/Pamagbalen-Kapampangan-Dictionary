@@ -92,14 +92,14 @@ public class ListContentContainerController extends ListAbstract {
         for (String[] words : filteredList) {
             System.out.println(words[0]);
             Label wordLabel = new Label(String.valueOf(capitalize(words[0]))); 
-            wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: white;");
+            wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: dimgrey;");
             wordLabel.setOnMouseEntered(e -> {
-                wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: #eb8686;");
+                wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: #003049;");
 
             });
             
             wordLabel.setOnMouseExited(e -> {
-                wordLabel.setStyle("-fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: white;"); 
+                wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: dimgrey;"); 
 
             });
 
