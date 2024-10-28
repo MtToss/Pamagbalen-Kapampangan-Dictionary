@@ -93,7 +93,7 @@ public class MainWindowController extends mainAbstract {
     @FXML
     public void onBrowsePaneShow() {
         //animatePane(browsePane, true); 
-        browseAnchorPane.setStyle("-fx-background-color: ROYALBLUE;");
+        browseAnchorPane.setStyle("-fx-background-color: #003049;");
         browseLabel.setTextFill(Color.WHITE);
     }
 
@@ -107,7 +107,7 @@ public class MainWindowController extends mainAbstract {
     @FXML
     public void onHomePaneShow() {
         //animatePane(homePane, true);
-        homeAnchorPane.setStyle("-fx-background-color: ROYALBLUE;");
+        homeAnchorPane.setStyle("-fx-background-color:  #003049;");
         homeLabel.setTextFill(Color.WHITE);
     }
 

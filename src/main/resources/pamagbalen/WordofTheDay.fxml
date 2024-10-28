@@ -27,7 +27,7 @@
             <Insets bottom="20.0" />
          </VBox.margin>
       </AnchorPane>
-      <AnchorPane prefHeight="325.0" prefWidth="730.0" style="-fx-background-color: DIMGRAY; -fx-border-color: LEMONCHIFFON; -fx-border-radius: 5; -fx-border-width: 5;">
+      <AnchorPane prefHeight="325.0" prefWidth="730.0" style="-fx-background-color: DIMGRAY; -fx-border-color: fdf0d5; -fx-border-radius: 5; -fx-border-width: 5;">
          <VBox.margin>
             <Insets bottom="10.0" left="5.0" right="5.0" />
          </VBox.margin>
@@ -37,7 +37,7 @@
                   <Font name="Courier New Bold" size="25.0" />
                </font>
             </Label>
-            <TextArea fx:id="definitionContainer" editable="false" layoutX="410.0" layoutY="74.0" prefHeight="212.0" prefWidth="245.0" promptText="Pre-Text" style="-fx-border-color: STEELBLUE; -fx-border-radius: 0; -fx-border-width: 3;" text="Pre-Text" wrapText="true">
+            <TextArea fx:id="definitionContainer" editable="false" layoutX="410.0" layoutY="74.0" prefHeight="212.0" prefWidth="245.0" promptText="Pre-Text" style="-fx-border-color: 003049; -fx-border-radius: 0; -fx-border-width: 3;" text="Pre-Text" wrapText="true">
                <font>
                   <Font name="MS UI Gothic" size="24.0" />
                </font>
