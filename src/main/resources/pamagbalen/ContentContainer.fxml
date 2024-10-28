@@ -37,7 +37,7 @@
             </Label>
             <Label fx:id="kapampanganWord" alignment="CENTER" layoutX="29.0" layoutY="26.0" prefHeight="36.0" prefWidth="309.0" style="-fx-background-color: steelblue; -fx-background-radius: 15;" text="Kapampangan Word" textFill="WHITE" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="26.0">
                <font>
-                  <Font name="Courier New Bold" size="23.0" />
+                  <Font name="System Bold" size="23.0" />
                </font>
             </Label>
             <Label alignment="CENTER" layoutX="25.0" layoutY="68.0" prefHeight="35.0" prefWidth="127.0" style="-fx-background-color: Lemonchiffon;" text="Tagalog:" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="68.0">
@@ -52,12 +52,12 @@
             </Label>
             <Label fx:id="tagalogWord" alignment="CENTER" layoutX="160.0" layoutY="68.0" prefHeight="35.0" prefWidth="176.0" style="-fx-background-color: white;" text="Word" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="68.0">
                <font>
-                  <Font name="Georgia" size="20.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
             <Label fx:id="englishWord" alignment="CENTER" layoutX="160.0" layoutY="104.0" prefHeight="35.0" prefWidth="176.0" style="-fx-background-color: white;" text="Word" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="104.0">
                <font>
-                  <Font name="Georgia" size="20.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
             <TextArea fx:id="definitionContainer" editable="false" layoutX="25.0" layoutY="175.0" prefHeight="102.0" prefWidth="650.0" promptText="Pre-Text" text="Pre-Text" wrapText="true">

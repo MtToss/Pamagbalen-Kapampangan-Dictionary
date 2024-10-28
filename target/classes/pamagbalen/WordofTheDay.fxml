@@ -49,7 +49,7 @@
                <children>
                   <Label fx:id="kapampanganWord" alignment="CENTER" layoutX="10.0" layoutY="-1.0" prefHeight="31.0" prefWidth="350.0" style="-fx-background-color: STEELBLUE;" stylesheets="@css/title_label.css" text="Kapampangan Word" textFill="WHITE" AnchorPane.bottomAnchor="232.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="-1.0">
                      <font>
-                        <Font name="Courier New Bold" size="25.0" />
+                        <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="11.0" layoutY="44.0" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: WHEAT;" text="Tagalog:">
@@ -62,14 +62,14 @@
                         <Font name="Georgia" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tagalogWord" alignment="CENTER" layoutX="122.0" layoutY="44.0" prefHeight="45.0" prefWidth="237.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="173.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="44.0">
+                  <Label fx:id="tagalogWord" alignment="CENTER" layoutX="122.0" layoutY="44.0" prefHeight="44.0" prefWidth="237.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="179.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="44.0">
                      <font>
                         <Font name="Georgia" size="25.0" />
                      </font>
                   </Label>
                   <Label fx:id="englishWord" alignment="CENTER" layoutX="122.0" layoutY="146.0" prefHeight="37.0" prefWidth="236.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="146.0">
                      <font>
-                        <Font name="Georgia" size="25.0" />
+                        <Font size="25.0" />
                      </font>
                   </Label>
                </children>
