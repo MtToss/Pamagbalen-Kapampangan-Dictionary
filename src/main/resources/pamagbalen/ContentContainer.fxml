@@ -50,14 +50,14 @@
                   <Font name="Georgia" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="tagalogWord" alignment="CENTER" layoutX="160.0" layoutY="68.0" prefHeight="35.0" prefWidth="176.0" style="-fx-background-color: white;" text="Word" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="68.0">
+            <Label fx:id="tagalogWord" alignment="CENTER" layoutX="160.0" layoutY="68.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white;" text="Word" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="68.0">
                <font>
-                  <Font name="Courier New Bold" size="20.0" />
+                  <Font name="Georgia" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="englishWord" alignment="CENTER" layoutX="160.0" layoutY="104.0" prefHeight="35.0" prefWidth="176.0" style="-fx-background-color: white;" text="Word" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="104.0">
+            <Label fx:id="englishWord" alignment="CENTER" layoutX="160.0" layoutY="104.0" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: white;" text="Word" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="104.0">
                <font>
-                  <Font name="Segoe UI" size="20.0" />
+                  <Font name="Georgia" size="20.0" />
                </font>
             </Label>
             <TextArea fx:id="definitionContainer" editable="false" layoutX="25.0" layoutY="175.0" prefHeight="102.0" prefWidth="650.0" promptText="Pre-Text" text="Pre-Text" wrapText="true">
