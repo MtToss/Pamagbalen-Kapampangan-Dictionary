@@ -62,12 +62,12 @@
                         <Font name="Georgia" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tagalogWord" alignment="CENTER" layoutX="122.0" layoutY="44.0" prefHeight="44.0" prefWidth="237.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="179.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="44.0">
+                  <Label fx:id="tagalogWord" alignment="CENTER" layoutX="122.0" layoutY="44.0" prefHeight="45.0" prefWidth="237.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="44.0">
                      <font>
                         <Font name="Georgia" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="englishWord" alignment="CENTER" layoutX="122.0" layoutY="146.0" prefHeight="37.0" prefWidth="236.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="146.0">
+                  <Label fx:id="englishWord" alignment="CENTER" layoutX="122.0" layoutY="146.0" prefHeight="55.0" prefWidth="236.0" style="-fx-background-color: WHITESMOKE;" text="Word" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="146.0">
                      <font>
                         <Font size="25.0" />
                      </font>

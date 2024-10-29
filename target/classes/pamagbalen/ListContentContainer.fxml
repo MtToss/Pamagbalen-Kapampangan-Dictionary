@@ -19,9 +19,9 @@
          </font>
       </Label>
       <VBox fx:id="subContainer" layoutX="489.0" layoutY="82.0" prefHeight="238.0" prefWidth="422.0" />
-      <ScrollPane fx:id="listPane" hbarPolicy="NEVER" layoutX="73.0" layoutY="94.0" prefHeight="295.0" prefWidth="255.0" stylesheets="@css/scrollpane_style.css">
+      <ScrollPane fx:id="listPane" hbarPolicy="NEVER" layoutX="73.0" layoutY="94.0" prefHeight="295.0" prefWidth="255.0" style="-fx-background-color: dimgrey;" stylesheets="@css/scrollpane_style.css">
          <content>
-            <VBox fx:id="indexContainer" prefHeight="292.0" prefWidth="254.0" style="-fx-background-color: dimgray; -fx-background-radius: 15; -fx-border-width: 5; -fx-border-color: LEMONCHIFFON;" styleClass="scroll-pane" stylesheets="@css/scrollpane_style.css" />
+            <VBox fx:id="indexContainer" prefHeight="292.0" prefWidth="254.0" style="-fx-background-color: dimgray; -fx-background-radius: 15; -fx-border-width: 3; -fx-border-color: lemonchiffon;" styleClass="scroll-pane" stylesheets="@css/scrollpane_style.css" />
          </content>
       </ScrollPane>
    </children>

@@ -92,24 +92,23 @@ public class ListContentContainerController extends ListAbstract {
         for (String[] words : filteredList) {
             System.out.println(words[0]);
             Label wordLabel = new Label(String.valueOf(capitalize(words[0]))); 
-            wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: dimgrey;");
+            wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: dimgrey; -fx-background-radius: 5; -fx-border-radius: 5;");
+            
             wordLabel.setOnMouseEntered(e -> {
-                wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: #003049;");
-
+                wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: #003049; -fx-background-radius: 10; -fx-border-radius: 10;");
             });
             
             wordLabel.setOnMouseExited(e -> {
-                wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: dimgrey;"); 
-
+                wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: dimgrey; -fx-background-radius: 5; -fx-border-radius: 5;");
             });
-
+        
             wordLabel.setOnMouseClicked(event -> {
-                onLabelClick(words); 
-
+                onLabelClick(words);
             });
-            
+        
             indexContainer.getChildren().add(wordLabel);
         }
+        
     }
 
     public void setAlphabet(char alphabet) {
