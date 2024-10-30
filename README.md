@@ -13,6 +13,7 @@
   
 # Steps to download JavaFX SDK
 
-- Go to the Gluon JavaFX website and scroll down to the JavaFX SDK section.
+- Go to the Gluon JavaFX website: https://gluonhq.com/products/javafx/
+- Scroll down to the JavaFX SDK section.
 - Select the appropriate version for your operating system (Windows, macOS, or Linux).
 - Download the JavaFX SDK ZIP file and extract it to a location of your choice on your machine.
