@@ -7,4 +7,7 @@ module pamagbalen {
     opens pamagbalen.application to javafx.fxml;
     exports pamagbalen.application;
 
+    opens pamagbalen.application.app to javafx.fxml;
+    exports pamagbalen.application.app;
+
 }

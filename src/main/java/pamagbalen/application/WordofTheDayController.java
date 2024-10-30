@@ -1,24 +1,21 @@
 package pamagbalen.application;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.VBox;
-import java.time.LocalDate;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class WordofTheDayController {
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
-    @FXML
-    private VBox vBoxContainer;
+public class WordofTheDayController {
 
     @FXML
     private TextArea definitionContainer;
@@ -32,7 +29,7 @@ public class WordofTheDayController {
     @FXML
     private Label englishWord;
 
-    private List<String[]> wordList = new ArrayList<>();
+    private final List<String[]> wordList = new ArrayList<>();
 
     public void initialize() {
         loadCSV("src\\main\\python\\csv\\kapampangan_translations.csv");
@@ -54,10 +51,8 @@ public class WordofTheDayController {
     
                 wordList.add(words);
             }
-            System.out.println("PASSED TEST 3 - Word of The Day Controller");
         } catch (IOException e) {
-            e.printStackTrace(); 
-            System.out.println("FAILED TEST 3 - Word of The Day Controller");
+           System.out.println("LOAD CSV ERROR: " + e.getMessage());
         }
     }
 
@@ -78,8 +73,9 @@ public class WordofTheDayController {
                         return;
                     }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } 
+            catch (IOException e) {
+                System.out.println("Set Word of the Day Error: " + e.getMessage());
             }
         }
 
@@ -90,8 +86,9 @@ public class WordofTheDayController {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(recordFile))) {
             bw.write(today.toString() + "," + randomIndex);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } 
+        catch (IOException e) {
+            System.out.println("Set Word of the Day Error: " + e.getMessage());
         }
     }
 
@@ -102,7 +99,6 @@ public class WordofTheDayController {
             kapampanganWord.setText(capitalize(selectedWord[0])); 
             tagalogWord.setText(capitalize(selectedWord[1])); 
             englishWord.setText(capitalize(selectedWord[2]));
-            //definitionContainer.setText("is a type of flowering plant belonging to the family Poaceae, characterized by narrow leaves and hollow stems, commonly found in various habitats, and plays an essential role in ecosystems as a ground cover, forage for animals, and soil stabilization");
             definitionContainer.setText(capitalize(selectedWord[3]));
             
         }

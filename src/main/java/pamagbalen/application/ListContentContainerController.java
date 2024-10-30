@@ -19,9 +19,8 @@ import pamagbalen.application.tool.ListAbstract;
 
 public class ListContentContainerController extends ListAbstract {
     
-    int i = 1;
-    Label wordContainer = null;
-    private List<String[]> wordList = new ArrayList<>();
+ 
+    private final List<String[]> wordList = new ArrayList<>();
     char alphabetContainer;
     VBox contentContainer = null;
 
@@ -61,10 +60,9 @@ public class ListContentContainerController extends ListAbstract {
                 }
                 wordList.add(words);
             }
-            System.out.println("PASSED TEST 4 - Content Container Controller");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("FAILED TEST 4 - Content Container Controller");
+        } 
+        catch (IOException e) {
+            System.out.println("Load CSV Error: " + e.getMessage());  
         }
     }
 
@@ -90,7 +88,6 @@ public class ListContentContainerController extends ListAbstract {
         
 
         for (String[] words : filteredList) {
-            System.out.println(words[0]);
             Label wordLabel = new Label(String.valueOf(capitalize(words[0]))); 
             wordLabel.setStyle("-fx-text-fill: white; -fx-font-family: 'Sitka Small'; -fx-font-size: 25; -fx-background-color: dimgrey; -fx-background-radius: 5; -fx-border-radius: 5;");
             
@@ -113,9 +110,7 @@ public class ListContentContainerController extends ListAbstract {
 
     public void setAlphabet(char alphabet) {
         alphabetContainer = alphabet;
-        filterWordListByLetter(alphabetContainer);  
-        System.out.println("Alphabet set to: " + alphabetContainer); 
-         
+        filterWordListByLetter(alphabetContainer);   
     }
 
     public void onLabelClick(String[] wordData) {
@@ -151,7 +146,7 @@ public class ListContentContainerController extends ListAbstract {
             
         } 
         catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("On Label Click Error: " + e.getMessage());
         }
     }
 

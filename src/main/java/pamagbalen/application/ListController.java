@@ -31,7 +31,7 @@ public class ListController {
             listContentController = loader.getController();
             
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Initialize List Content Controller Error: " + e.getMessage());
         }
     }
 

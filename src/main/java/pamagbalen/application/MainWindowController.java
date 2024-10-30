@@ -1,10 +1,11 @@
 package pamagbalen.application;
 
+import java.io.IOException;
+
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -15,12 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import pamagbalen.application.tool.mainAbstract;
 
-import java.io.IOException;
-
 public class MainWindowController extends mainAbstract {
-
-    @FXML
-    private AnchorPane mainContainer; 
 
     @FXML
     private HBox subContainer;
@@ -29,13 +25,7 @@ public class MainWindowController extends mainAbstract {
     private TextField searchTextField;
 
     @FXML
-    private Button searchButton;
-
-    @FXML
     private AnchorPane bottomPaneContainer;
-
-    @FXML
-    private VBox vBoxContainer;
 
     @FXML
     private Pane browsePane;
@@ -58,7 +48,7 @@ public class MainWindowController extends mainAbstract {
     AnchorPane selectorContainer = null;
     AnchorPane listContentContainer = null;
 
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    
 
 
 
@@ -82,44 +72,40 @@ public class MainWindowController extends mainAbstract {
             subContainer.getChildren().add(wordofTheDayContainer);
             HBox.setMargin(wordofTheDayContainer, new Insets(50, 50, 0, 50));
 
-            System.out.println("PASSED TEST 1 - MainWindowController");
         } 
         catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("FAILED TEST 1 - MainWindowController");
+            System.out.println("Load Area Error: " + e.getMessage());
+            
         }
     }
 
     @FXML
     public void onBrowsePaneShow() {
-        //animatePane(browsePane, true); 
         browseAnchorPane.setStyle("-fx-background-color: #003049;");
         browseLabel.setTextFill(Color.WHITE);
     }
 
     @FXML
     public void onBrowsePaneHide() {
-        //animatePane(browsePane, false); 
         browseAnchorPane.setStyle("-fx-background-color: STEELBLUE;");
         browseLabel.setTextFill(Color.BLACK);
     }
 
     @FXML
     public void onHomePaneShow() {
-        //animatePane(homePane, true);
         homeAnchorPane.setStyle("-fx-background-color:  #003049;");
         homeLabel.setTextFill(Color.WHITE);
     }
 
     @FXML
     public void onHomePaneHide() {
-        //animatePane(homePane, false);
         homeAnchorPane.setStyle("-fx-background-color: STEELBLUE;");
         homeLabel.setTextFill(Color.BLACK);
     }
 
 
     @FXML
+    @SuppressWarnings("unused")
     private void buttonClicked() {
         String wordContainer = searchTextField.getText();
 
@@ -144,11 +130,11 @@ public class MainWindowController extends mainAbstract {
 
                 }
                 
-                contentContainer.getProperties().put("fxController", contentContainerController); // we store the controller to the content container for future purposes
+                contentContainer.getProperties().put("fxController", contentContainerController); 
             } 
             else if(subContainer.getChildren().contains(contentContainer) && !subContainer.getChildren().contains(wordofTheDayContainer)) {
-                // and we need to update it for another search, we can retrieve to controller and update the word.
-                ContentContainerController contentContainerController = (ContentContainerController) contentContainer.getProperties().get("fxController"); // this is what the future purposes means like, we get the controller. Since it is initialized 
+                
+                ContentContainerController contentContainerController = (ContentContainerController) contentContainer.getProperties().get("fxController"); 
 
 
                 animateExitContentContainer(contentContainer);
@@ -176,17 +162,17 @@ public class MainWindowController extends mainAbstract {
                 pause.play();
                 
             }
-              
-            pause.setOnFinished(event -> {
+            
+            PauseTransition pause1 = new PauseTransition(Duration.seconds(1));
+            pause1.setOnFinished(event -> {
                 contentContainer.setTranslateX(-subContainer.getWidth());
                 addAndAnimateContentContainer(contentContainer, subContainer);
             });
-            pause.play();
+            pause1.play();
 
             
             if(subContainer.getChildren().contains(listContentContainer)) {
                 contentContainer.setTranslateX(-subContainer.getWidth());
-                System.out.println("HI");
                 exitanimateLCC(listContentContainer);
                 PauseTransition pause = new PauseTransition(Duration.seconds(0.75));
     
@@ -205,7 +191,7 @@ public class MainWindowController extends mainAbstract {
             
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Button Clicked Error: " + e.getMessage());
         }
     }
 
@@ -240,7 +226,6 @@ public class MainWindowController extends mainAbstract {
                 });
                 pause.play();
             }
-            System.out.println("PUMAPASOK");
             wordofTheDayContainer.setVisible(true);
             
             subContainer.getChildren().add(wordofTheDayContainer);
@@ -257,9 +242,9 @@ public class MainWindowController extends mainAbstract {
             FXMLLoader selectorContainerLoader = new FXMLLoader(getClass().getResource("/pamagbalen/Selector.fxml"));
             try {
                 selectorContainer = selectorContainerLoader.load();
-            } catch (IOException e) {
-                
-                e.printStackTrace();
+            } 
+            catch (IOException e) {
+                System.out.println("Label Browse Clicked Error: " + e.getMessage());
             }
             ListController browseController = selectorContainerLoader.getController();
             browseController.setMainWindowController(this); 
@@ -292,7 +277,6 @@ public class MainWindowController extends mainAbstract {
         }
 
         if(subContainer.getChildren().contains(wordofTheDayContainer)) {
-            System.out.println("GUMAGANA");
             animateExitWordofTheDayContainer(wordofTheDayContainer);
             PauseTransition pause = new PauseTransition(Duration.seconds(0.8));
             pause.setOnFinished(event -> {
@@ -325,7 +309,7 @@ public class MainWindowController extends mainAbstract {
             listContentContainerController.setAlphabet(letter);
         } 
         catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Load List Content Container Error: " + e.getMessage());
         }
         
 

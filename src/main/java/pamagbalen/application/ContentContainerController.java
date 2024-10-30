@@ -9,14 +9,10 @@ import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.VBox;
 
 public class ContentContainerController {
 
     private String wordContainer = null;
-
-    @FXML
-    private VBox vBoxContainer;
 
     @FXML
     private TextArea definitionContainer;
@@ -33,9 +29,8 @@ public class ContentContainerController {
     @FXML
     private Label labelContainer1;
 
-    private Map<String, String[]> wordMap = new HashMap<>();
+    private final Map<String, String[]> wordMap = new HashMap<>();
 
-    VBox mainWindow = null;
 
     public void initialize() {
         loadCSV("src\\\\main\\\\python\\\\csv\\\\kapampangan_translations.csv");
@@ -58,23 +53,19 @@ public class ContentContainerController {
                 wordMap.put(words[1].toLowerCase(), words); 
                 wordMap.put(words[2].toLowerCase(), words); 
             }
-            System.out.println("PASSED TEST 4 - Content Container Controller");
         } 
         catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("FAILED TEST 4 - Content Container Controller");
-        }
+            System.out.println("Load CSV Error: " + e.getMessage());
+        }    
     }
 
     public String getWordSearched(String searched) {
         try {
             wordContainer = searched.trim().toLowerCase(); 
             verifySearch();
-            System.out.println("SUCCESSFULLY PASSED THE WORD YOU SEARCHED");
-            System.out.println("IS IT " + wordContainer + "?");
         } 
         catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Get Word Searcher Error: " + e.getMessage());
         }
         return wordContainer;
     } 

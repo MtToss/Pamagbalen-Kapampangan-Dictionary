@@ -1,4 +1,6 @@
-package pamagbalen.application;
+package pamagbalen.application.app;
+
+import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,9 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     @Override
@@ -21,12 +20,11 @@ public class App extends Application {
             primaryStage.setHeight(850);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Kapampangan Translator");
-            System.out.println("PASSED TEST 2 - APP");
             primaryStage.show();
 
         } 
-        catch (Exception e) {
-            System.out.println("Window Error: " + e.getMessage()); e.printStackTrace();
+        catch (IOException e) {
+            System.out.println("Window Error: " + e.getMessage()); 
             System.out.println("FAILED TEST 2 - APP");
         }
     }
