@@ -5,6 +5,7 @@
 - **Kapampangan to Tagalog/English Dictionary**: Translate words seamlessly between Kapampangan, Tagalog and English dynamically.
 - **Word of the Day**: Discover a new Kapampangan word each day along with its definition.
 - **User-Friendly Interface**: Design using JavaFX for a smooth user experience.
+- **Search Engine**: For easier searching.
 
 - ## Technologies Used
 
